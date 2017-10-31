@@ -5,8 +5,8 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
-
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="875.0" prefWidth="1030.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -51,7 +51,10 @@
       </MenuBar>
       <ScrollPane layoutX="1.0" layoutY="47.0" prefHeight="828.0" prefWidth="545.0">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="827.0" prefWidth="546.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="827.0" prefWidth="546.0">
+               <children>
+                  <TextArea prefHeight="811.0" prefWidth="526.0" />
+               </children></AnchorPane>
         </content>
       </ScrollPane>
       <Button layoutX="547.0" layoutY="428.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="83.0" text="REFRESH" textFill="#1813bf" />
