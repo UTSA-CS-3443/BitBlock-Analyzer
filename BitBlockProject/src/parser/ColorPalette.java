@@ -3,7 +3,7 @@ package parser;
 /**
  * A color palette for use in producing a BitBlock. 
  * Contains all the colors and their code equivelents.
- * "needs to take input from source file"
+ * "needs to have 1 to 1 mapping"
  * @author Triston Scallan
  *
  */
