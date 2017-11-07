@@ -13,13 +13,14 @@ public class SCParser {
 		//this is to make it easier to use certain statements to flag for user-created statements
 		//consider abstract syntax tree
 	/** the arrayList of tokens of a single expression*/
-	List<String> tokenList = new ArrayList<String>();
+	private List<String> tokenList = new ArrayList<String>();
 	//variable, 2D arrayList, (to be passed to BitBLock class)
 		// first column, hold ALL of the tokens parsed.
 		// second column, holds the resulted parsed colors 
 	/** the arrayList of TokenizedPixel type to construct a BitBlock */
-	List<TokenizedPixel> pixelList = new ArrayList<TokenizedPixel>();
+	private List<TokenizedPixel> pixelList = new ArrayList<TokenizedPixel>();
 
+	
 	/**
 	 * @return the tokenList
 	 */

@@ -12,8 +12,9 @@ import java.util.*;
 public class BitBlock {
 	
 	/** the arrayList of TokenizedPixel type to construct a BitBlock */
-	List<TokenizedPixel> pixelList = new ArrayList<TokenizedPixel>();
-
+	private List<TokenizedPixel> pixelList = new ArrayList<TokenizedPixel>();
+	
+	
 	/**
 	 * @return the pixelList
 	 */

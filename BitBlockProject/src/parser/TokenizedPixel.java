@@ -3,6 +3,8 @@
  */
 package parser;
 
+import javafx.scene.paint.Color;
+
 /**
  * a class object designed to hold a token and it's corresponding color, 
  * creating a whole pixel of the BitBlock. 
@@ -12,10 +14,13 @@ package parser;
  */
 public class TokenizedPixel {
 	
-	private String token = ""; 	//the string token of the source code
-	private String color = "";	//the string containing the color pertaining to the token
+		/**	the string token of the source code*/
+	private String token = "";
+		/**	the color pertaining to the token*/
+	private Color color;
 	
-	public TokenizedPixel(String token, String color) {
+	
+	public TokenizedPixel(String token, Color color) {
 		this.token = token;
 		this.color = color;
 	}
@@ -34,13 +39,13 @@ public class TokenizedPixel {
 	/**
 	 * @return the color
 	 */
-	public String getColor() {
+	public Color getColor() {
 		return color;
 	}
 	/**
 	 * @param color the color to set
 	 */
-	public void setColor(String color) {
+	public void setColor(Color color) {
 		this.color = color;
 	}
 	
