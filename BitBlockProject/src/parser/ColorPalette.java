@@ -12,17 +12,83 @@ import javafx.scene.paint.Color;
  */
 public class ColorPalette {
 	//TODO: create a CONSTANT variable, a hash map that sets keys (expressions and literals) to values (colors)
-	
+	//TODO: find a list of commonly used java statements. look up generic java files and skim for top 15% used java statements.
 		/**A class constant immutable map that contains all the token-color associations*/
 		@SuppressWarnings("unused")
 	private static final Map<String, Color> PALETTE;
 	
 	static {		//List of all associations
 		Map<String, Color> aMap = new HashMap<String, Color>();
+	    //Built in statements
+			//types TODO: build logic to recognize casting a type vs declaring a type
+	    	aMap.put("int", Color.web("#000"));
+	    	aMap.put("Integer", Color.web("#000"));
+	    	aMap.put("double", Color.web("#000"));
+	    	aMap.put("Double", Color.web("#000"));
+	    	aMap.put("boolean", Color.web("#000"));
+	    	aMap.put("char", Color.web("#000"));
+	    	aMap.put("String", Color.web("#000"));
+	    	aMap.put("long", Color.web("#000"));
+	    	aMap.put("Long", Color.web("#000"));
+	    	aMap.put("void", Color.web("#000"));
+	    		//declarations
+	    	aMap.put("private", Color.web("#000"));
+	    	aMap.put("public", Color.web("#000"));
+	    	aMap.put("import", Color.web("#000"));
+	    	aMap.put("package", Color.web("#000"));
+	    	aMap.put("class", Color.web("#000"));
+	    	aMap.put("extends", Color.web("#000"));
+	    	aMap.put("implements", Color.web("#000"));
+	    	aMap.put("static", Color.web("#000"));
+	    	aMap.put("final", Color.web("#000"));
+	    	aMap.put("new", Color.web("#000"));
+	    		//commonly called class-objects
+	    	aMap.put("List", Color.web("#000"));
+	    	aMap.put("Collections", Color.web("#000"));
+	    	aMap.put("Iterator", Color.web("#000"));
+	    	aMap.put("Map", Color.web("#000"));
+	    	aMap.put("ArrayList", Color.web("#000"));
+	    	aMap.put("Array", Color.web("#000"));
+	    		//commonly used statements
+	    	aMap.put("System", Color.web("#000"));
+	    	aMap.put("out", Color.web("#000"));
+	    	aMap.put("print", Color.web("#000"));
+	    	aMap.put("println", Color.web("#000"));
+	    	aMap.put("printf", Color.web("#000"));
+	    		//flow control TODO: flow control could use a bit of deterministic logic
 	    	aMap.put("if", Color.web("#000"));
 	    	aMap.put("else", Color.web("#000"));
+	    	aMap.put("while", Color.web("#000"));
+	    	aMap.put("do", Color.web("#000"));
+	    	aMap.put("for", Color.web("#000")); 
+	    	aMap.put("break", Color.web("#000"));
+	    	aMap.put("next", Color.web("#000"));
+	    	aMap.put("continue", Color.web("#000"));
+	    	aMap.put("cancel", Color.web("#000"));
+	    	aMap.put("switch", Color.web("#000"));
+	    	aMap.put("case", Color.web("#000"));
+	    	aMap.put("return", Color.web("#000"));
+	    		//logic
+	    	aMap.put("true", Color.web("#000"));
+	    	aMap.put("false", Color.web("#000"));
+	    	aMap.put("==", Color.web("#000"));
+	    	aMap.put("!=", Color.web("#000"));
+	    	aMap.put("<", Color.web("#000"));
+	    	aMap.put(">", Color.web("#000"));
+	    	aMap.put("<=", Color.web("#000"));
+	    	aMap.put(">=", Color.web("#000"));
+	    	aMap.put("&&", Color.web("#000"));
+	    	aMap.put("||", Color.web("#000"));
+	    		//comments and javadoc  TODO: all tokens after and before comments should be ignored
+	    	aMap.put("//", Color.web("#000"));
+	    	aMap.put("/*", Color.web("#000"));
+	    	aMap.put("/**", Color.web("#000"));
+	    	//aMap.put("*", Color.web("#000")); TODO: KEEP IN MIND ABOUT LINES THAT START WITH STAR
+	    	aMap.put("*/", Color.web("#000"));
+	    	aMap.put("@{word}", Color.web("#000")); //TODO: write logic to ignore tokens of @{words}
+	    	aMap.put(">", Color.web("#000"));
 	    
-	    //List of literals. they are contains in shades _ and _
+	    //List of literals. they are contained in shades _ and _
 	    		//alphabet
 	    	aMap.put("a", Color.web("#000"));
 	    	aMap.put("A", Color.web("#000"));
@@ -90,7 +156,7 @@ public class ColorPalette {
 	    		//symbols
 	    	aMap.put("-", Color.web("#000"));
 	    	aMap.put("_", Color.web("#000"));
-	    	aMap.put("=", Color.web("#000"));
+	    	aMap.put("=", Color.web("#000"));	//equal is kinda special as assignment, TODO: brainstorm more about logic of = in tokens 
 	    	aMap.put("+", Color.web("#000"));
 	    	aMap.put(";", Color.web("#000"));
 	    	aMap.put(":", Color.web("#000"));
@@ -100,10 +166,8 @@ public class ColorPalette {
 	    	aMap.put("|", Color.web("#000"));
 	    	aMap.put("/", Color.web("#000"));
 	    	aMap.put("?", Color.web("#000"));
-	    	aMap.put("<", Color.web("#000"));
-	    	aMap.put(">", Color.web("#000"));
 	    	aMap.put(",", Color.web("#000"));
-	    	aMap.put(".", Color.web("#000"));
+	    	aMap.put(".", Color.web("#000"));	//TODO: if "." is found in a token, potentially break up the token before and after the periods, to see if any of them match a common method
 	    	aMap.put("!", Color.web("#000"));
 	    	aMap.put("@", Color.web("#000"));
 	    	aMap.put("#", Color.web("#000"));
