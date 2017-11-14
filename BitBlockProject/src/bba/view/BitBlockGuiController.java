@@ -1,4 +1,4 @@
-package bba;
+package bba.view;
 
 /*
  * @author Josh Thorsson
