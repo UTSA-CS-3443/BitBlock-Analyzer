@@ -14,7 +14,7 @@
 <!-- @author Josh Thorsson 
 	Creates the Bit Block Analyzer GUI-->
 
-<AnchorPane maxHeight="900.0" maxWidth="1000.0" minHeight="900.0" minWidth="1000.0" prefHeight="900.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="900.0" maxWidth="1000.0" minHeight="900.0" minWidth="1000.0" prefHeight="900.0" prefWidth="1000.0" fx:controller="bba.view.BitBlockGuiController" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="900.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -28,7 +28,7 @@
                 <RowConstraints maxHeight="358.0" minHeight="10.0" prefHeight="343.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Canvas height="378.0" width="350.0" />
+                  <Canvas fx:id="drawArea" height="378.0" width="350.0" />
                   <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
                </children>
             </GridPane>
