@@ -9,11 +9,13 @@ import java.util.List;
  * Produce statistic from a token list
  * @author Anthony Hoang
  */
-
 public class Statistic {
 	
 	private List<String> tokenList = new ArrayList<String>();
+	HashSet<String> uniqToken = new HashSet<String>();
 	private List<TokenizedPixel> pixelList = new ArrayList<TokenizedPixel>();
+	HashSet<String> uniqPixel = new HashSet<String>();
+	
 	
 	public void setTokenList(List<String> tokenList)
 	{
@@ -43,4 +45,18 @@ public class Statistic {
 		uniqPixel.addAll(tokenList);
 		return uniqPixel.size();
 	}
+	
+	public int getFreq(String token)
+	{
+		int count = 0;
+		for (int i=0; i < tokenList.size(); i++)
+		{
+			if (tokenList.get(i).equals(token))
+				count ++;
+		}
+		
+		return 0;
+	}
+	
+	
 }
