@@ -5,17 +5,33 @@ import java.nio.ByteBuffer;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.PixelFormat;
 import javafx.scene.image.PixelWriter;
+import javafx.scene.paint.Color;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import parser.*;
 
 /*
  * @author Josh Thorsson
  * 
- * the Pixel class 
+ * Model class for Pixels 
  */
 
 public class Pixel {
 	
 	private static final int RECT_WIDTH = 20;
 	private static final int RECT_HEIGHT = 20;
+	private final StringProperty token;
+	private final ObjectProperty<Color> tokenColor;
+	
+	public Pixel(String token, Color tokenColor)
+	{
+		this.token = new SimpleStringProperty(token);
+		this.tokenColor = new SimpleObjectProperty(tokenColor);
+	}
 	
 	
 	private void drawBitBlock(GraphicsContext gc)
