@@ -36,4 +36,11 @@ public class Statistic {
 		uniqToken.addAll(tokenList);
 		return uniqToken.size();
 	}
+	
+	public int countUniqPixel()
+	{
+		HashSet<String> uniqPixel = new HashSet<String>();
+		uniqPixel.addAll(tokenList);
+		return uniqPixel.size();
+	}
 }
