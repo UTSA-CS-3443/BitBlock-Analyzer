@@ -11,6 +11,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<!-- @author Josh Thorsson 
+	Creates the Bit Block Analyzer GUI-->
 
 <AnchorPane maxHeight="900.0" maxWidth="1000.0" minHeight="900.0" minWidth="1000.0" prefHeight="900.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
    <children>

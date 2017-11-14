@@ -8,6 +8,11 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import bba.model.*;
+
+/*
+ * @author Josh Thorsson
+ */
 
 public class MainApp extends Application 
 {
