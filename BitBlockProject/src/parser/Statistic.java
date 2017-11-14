@@ -12,19 +12,21 @@ import java.util.List;
 public class Statistic {
 	
 	private List<String> tokenList = new ArrayList<String>();
-	HashSet<String> uniqToken = new HashSet<String>();
 	private List<TokenizedPixel> pixelList = new ArrayList<TokenizedPixel>();
-	HashSet<String> uniqPixel = new HashSet<String>();
 	
+	HashSet<String> uniqToken = new HashSet<String>();
+	HashSet<TokenizedPixel> uniqPixel = new HashSet<TokenizedPixel>();
 	
 	public void setTokenList(List<String> tokenList)
 	{
 		this.tokenList = tokenList;
+		uniqToken.addAll(tokenList);
 	}
 	
 	public void setPixelList(List<TokenizedPixel> pixelList)
 	{
 		this.pixelList = pixelList;
+		uniqPixel.addAll(pixelList);
 	}
 	
 	public int countToken()
@@ -41,8 +43,6 @@ public class Statistic {
 	
 	public int countUniqPixel()
 	{
-		HashSet<String> uniqPixel = new HashSet<String>();
-		uniqPixel.addAll(tokenList);
 		return uniqPixel.size();
 	}
 	
@@ -50,12 +50,22 @@ public class Statistic {
 	{
 		int count = 0;
 		for (int i=0; i < tokenList.size(); i++)
-		{
 			if (tokenList.get(i).equals(token))
+				count ++;
+		
+		return count;
+	}
+	
+	public int countLoop()
+	{
+		int count = 0;
+		for (int i=0; i < tokenList.size(); i++)
+		{
+			if (tokenList.get(i).equals("for") || tokenList.get(i).equals("while"))
 				count ++;
 		}
 		
-		return 0;
+		return count;
 	}
 	
 	
