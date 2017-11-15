@@ -84,5 +84,6 @@ public class SCParser {
 	//method to parse a string of literals
 	//method to parse statements
 	//method to determine built in statements vs. user-created statements and parse accordingly
-		//TODO: if a token match with hash produces no value, then split the token into literals
+	//TODO: if tokens are initially created with whitespace delimiters, need to further separate tokens with context related delimiters	
+	//TODO: if a token match against the hashmap produces no value, then split the token into literals		
 }

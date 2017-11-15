@@ -14,8 +14,7 @@ public class ColorPalette {
 	//TODO: create a CONSTANT variable, a hash map that sets keys (expressions and literals) to values (colors)
 	//TODO: find a list of commonly used java statements. look up generic java files and skim for top 15% used java statements.
 		/**A class constant immutable map that contains all the token-color associations*/
-		@SuppressWarnings("unused")
-	private static final Map<String, Color> PALETTE;
+	public static final Map<String, Color> PALETTE;
 	
 	static {		//List of all associations
 		Map<String, Color> aMap = new HashMap<String, Color>();
@@ -31,9 +30,11 @@ public class ColorPalette {
 	    	aMap.put("long", Color.web("#000"));
 	    	aMap.put("Long", Color.web("#000"));
 	    	aMap.put("void", Color.web("#000"));
+	    	aMap.put("Void", Color.web("#000"));
 	    		//declarations
 	    	aMap.put("private", Color.web("#000"));
 	    	aMap.put("public", Color.web("#000"));
+	    	aMap.put("protected", Color.web("#000"));
 	    	aMap.put("import", Color.web("#000"));
 	    	aMap.put("package", Color.web("#000"));
 	    	aMap.put("class", Color.web("#000"));
@@ -49,6 +50,7 @@ public class ColorPalette {
 	    	aMap.put("Map", Color.web("#000"));
 	    	aMap.put("ArrayList", Color.web("#000"));
 	    	aMap.put("Array", Color.web("#000"));
+	    	aMap.put("args", Color.web("#000"));
 	    		//commonly used statements
 	    	aMap.put("System", Color.web("#000"));
 	    	aMap.put("out", Color.web("#000"));
@@ -158,16 +160,10 @@ public class ColorPalette {
 	    	aMap.put("_", Color.web("#000"));
 	    	aMap.put("=", Color.web("#000"));	//equal is kinda special as assignment, TODO: brainstorm more about logic of = in tokens 
 	    	aMap.put("+", Color.web("#000"));
-	    	aMap.put(";", Color.web("#000"));
-	    	aMap.put(":", Color.web("#000"));
-	    	aMap.put("'", Color.web("#000"));
-	    	aMap.put("\"", Color.web("#000"));
 	    	aMap.put("\\", Color.web("#000"));
 	    	aMap.put("|", Color.web("#000"));
 	    	aMap.put("/", Color.web("#000"));
 	    	aMap.put("?", Color.web("#000"));
-	    	aMap.put(",", Color.web("#000"));
-	    	aMap.put(".", Color.web("#000"));	//TODO: if "." is found in a token, potentially break up the token before and after the periods, to see if any of them match a common method
 	    	aMap.put("!", Color.web("#000"));
 	    	aMap.put("@", Color.web("#000"));
 	    	aMap.put("#", Color.web("#000"));
@@ -178,12 +174,20 @@ public class ColorPalette {
 	    	aMap.put("*", Color.web("#000"));
 	    	aMap.put("`", Color.web("#000"));
 	    	aMap.put("~", Color.web("#000"));
+	    		//delimiters
+	    	aMap.put(",", Color.web("#000"));
+	    	aMap.put(".", Color.web("#000"));	//TODO: if "." is found in a token, potentially break up the token before and after the periods, to see if any of them match a common method
+	    	aMap.put(";", Color.web("#000"));
+	    	aMap.put(":", Color.web("#000"));
+	    	aMap.put("'", Color.web("#000"));
+	    	aMap.put("\"", Color.web("#000"));
 	    	aMap.put("(", Color.web("#000"));
 	    	aMap.put(")", Color.web("#000"));
 	    	aMap.put("{", Color.web("#000"));
 	    	aMap.put("}", Color.web("#000"));
 	    	aMap.put("[", Color.web("#000"));
 	    	aMap.put("]", Color.web("#000"));
+	    	aMap.put("\n", Color.web("#000")); 	//newline!
 	    	PALETTE = Collections.unmodifiableMap(aMap);
 	}
 	
