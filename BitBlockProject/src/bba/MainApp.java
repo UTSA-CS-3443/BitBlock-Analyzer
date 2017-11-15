@@ -17,7 +17,7 @@ import bba.model.*;
 public class MainApp extends Application 
 {
 	
-	private Stage primaryStage;
+	public static Stage primaryStage;
 	private BorderPane rootLayout;
 
 	@Override

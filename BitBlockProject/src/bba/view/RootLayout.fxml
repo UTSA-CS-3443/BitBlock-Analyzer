@@ -17,6 +17,9 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
+                  <MenuItem mnemonicParsing="false" onAction="#openAction" text="Open" />
+                  <MenuItem mnemonicParsing="false" onAction="#saveAction" text="Save" />
+                  <MenuItem mnemonicParsing="false" onAction="#saveAsAction" text="Save As.." />
               <MenuItem mnemonicParsing="false" onAction="#quitAction" text="Close" />
             </items>
           </Menu>
@@ -33,4 +36,7 @@
         </menus>
       </MenuBar>
    </top>
+   <center>
+  <TextArea fx:id="myTextArea" prefHeight="200.0" prefWidth="200.0" text="Some sample text..." BorderPane.alignment="CENTER" />
+ </center>
 </BorderPane>
