@@ -42,7 +42,7 @@ public class SCParser {
 	 * @param index the index of the array
 	 * @param token the token to add
 	 */
-	public void addTokenList(int index, String token) {
+	public void addToken(int index, String token) {
 		this.tokenList.add(index, token);
 	}
 	
@@ -70,7 +70,7 @@ public class SCParser {
 	 * @param index the index of the array
 	 * @param pixel the pixel to add
 	 */
-	public void addPixelList(int index, TokenizedPixel pixel) {
+	public void addPixel(int index, TokenizedPixel pixel) {
 		this.pixelList.add(index, pixel);
 	}
 	
