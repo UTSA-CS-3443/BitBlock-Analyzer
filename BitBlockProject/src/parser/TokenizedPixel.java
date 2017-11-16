@@ -1,6 +1,3 @@
-/**
- * 
- */
 package parser;
 
 import javafx.scene.paint.Color;

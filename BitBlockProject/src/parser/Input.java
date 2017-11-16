@@ -1,10 +1,12 @@
 package parser;
 
 import java.util.*;
+import java.io.*;
 
 /**
  * Takes in and stores the source code.
- * "needs to take input from source file"
+ * "needs to take input from source file" <p>
+ * Should be called as `Input file = new Input("fileName", id)`
  * @author crimsonfig
  *
  */
@@ -17,6 +19,22 @@ public class Input {
 	private int sourceCodeID;
 	
 	
+	
+	/**
+	 * @param file a file's pathname as a string
+	 * @param ID an ID to distinguish this input from others. Should start at 1.
+	 * @throws FileNotFoundException
+	 * @throws NullPointerException if the pathname arguement is null
+	 */
+	public Input(String file, int ID) throws FileNotFoundException, NullPointerException {
+		try (Scanner in = new Scanner(new File(file))){
+			while (in.hasNext()) {
+				this.sourceCodeLines.add(in.next());
+			}
+		} 
+		
+		this.sourceCodeID = ID;
+	}
 	/**
 	 * @return the sourceCodeLines
 	 */

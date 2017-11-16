@@ -9,15 +9,17 @@ import java.util.*;
  *
  */
 public class SCParser {
+	
 	//variable, arrayList, to hold logically related characters in an expression
 		//this is to make it easier to use certain statements to flag for user-created statements
 		//consider abstract syntax tree
-	/** the arrayList of tokens of a single expression*/
+		/** the arrayList of tokens of a single expression*/
 	private List<String> tokenList = new ArrayList<String>();
+	
 	//variable, 2D arrayList, (to be passed to BitBLock class)
 		// first column, hold ALL of the tokens parsed.
 		// second column, holds the resulted parsed colors 
-	/** the arrayList of TokenizedPixel type to construct a BitBlock */
+		/** the arrayList of TokenizedPixel type to construct a BitBlock */
 	private List<TokenizedPixel> pixelList = new ArrayList<TokenizedPixel>();
 
 	
