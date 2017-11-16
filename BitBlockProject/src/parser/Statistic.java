@@ -14,8 +14,8 @@ public class Statistic {
 	private List<String> tokenList = new ArrayList<String>();
 	private List<TokenizedPixel> pixelList = new ArrayList<TokenizedPixel>();
 	
-	HashSet<String> uniqToken = new HashSet<String>();
-	HashSet<TokenizedPixel> uniqPixel = new HashSet<TokenizedPixel>();
+	private HashSet<String> uniqToken = new HashSet<String>();
+	private HashSet<TokenizedPixel> uniqPixel = new HashSet<TokenizedPixel>();
 	
 	public void setTokenList(List<String> tokenList)
 	{
