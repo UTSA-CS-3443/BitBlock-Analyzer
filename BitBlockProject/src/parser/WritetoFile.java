@@ -13,6 +13,15 @@ public class WritetoFile {
 
 	private List<String> sourceCodeLines = new ArrayList<String>();
 	
+	
+	/**
+	 * @param List<String> sourcecode, String path_to_out_file
+	 * append the data to that file
+	 * 
+	 * !!! NEED: check existence of file
+	 * 			 prompt user to overwrite
+	 * 
+	 */
 	public WritetoFile(List<String> sourceCodeLines, String outfile) throws IOException
 	{
 		this.sourceCodeLines = sourceCodeLines;

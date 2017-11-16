@@ -11,29 +11,43 @@ import java.util.List;
  */
 public class Statistic {
 	
+	
 	private List<String> tokenList = new ArrayList<String>();
 	private List<TokenizedPixel> pixelList = new ArrayList<TokenizedPixel>();
 	
+	// store token and pixel as hashset, to count unique
 	private HashSet<String> uniqToken = new HashSet<String>();
 	private HashSet<TokenizedPixel> uniqPixel = new HashSet<TokenizedPixel>();
 	
+	/**
+	 * set the token array list
+	 */
 	public void setTokenList(List<String> tokenList)
 	{
 		this.tokenList = tokenList;
 		uniqToken.addAll(tokenList);
 	}
 	
+	/**
+	 * set the pixel array list
+	 */
 	public void setPixelList(List<TokenizedPixel> pixelList)
 	{
 		this.pixelList = pixelList;
 		uniqPixel.addAll(pixelList);
 	}
 	
+	/**
+	 * @return count all token
+	 */
 	public int countToken()
 	{
 		return tokenList.size();
 	}
 	
+	/**
+	 * @return number of unique token
+	 */
 	public int countUniqToken()
 	{
 		HashSet<String> uniqToken = new HashSet<String>();
@@ -41,11 +55,18 @@ public class Statistic {
 		return uniqToken.size();
 	}
 	
+	/**
+	 * @return number of unique pixel
+	 */
 	public int countUniqPixel()
 	{
 		return uniqPixel.size();
 	}
 	
+	/**
+	 * @param String token
+	 * @return the turn the number of times specific token appears
+	 */
 	public int getFreq(String token)
 	{
 		int count = 0;
@@ -56,6 +77,9 @@ public class Statistic {
 		return count;
 	}
 	
+	/**
+	 * @return  the number of loop in the source
+	 */
 	public int countLoop()
 	{
 		int count = 0;
