@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="900.0" maxWidth="1000.0" minHeight="200.0" minWidth="200.0" prefHeight="900.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bba.controller.BitBlockGuiController">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+	      <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="900.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+	         <children>
+	            <GridPane gridLinesVisible="true" prefWidth="350.0">
+	              <columnConstraints>
+	                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+	              </columnConstraints>
+	              <rowConstraints>
+	                <RowConstraints maxHeight="402.0" minHeight="10.0" prefHeight="383.0" vgrow="SOMETIMES" />
+	                <RowConstraints maxHeight="294.0" minHeight="10.0" prefHeight="174.0" vgrow="SOMETIMES" />
+	                <RowConstraints maxHeight="358.0" minHeight="10.0" prefHeight="343.0" vgrow="SOMETIMES" />
+	              </rowConstraints>
+	               <children>
+	                  <Canvas fx:id="canvas" height="350.0" width="350.0" />
+	                  <TextArea fx:id="statTextField" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2" />
+                        <TextField fx:id="codeField" editable="false" prefHeight="73.0" prefWidth="350.0" GridPane.rowIndex="1" />
+	               </children>
+	            </GridPane>
+	            <GridPane prefWidth="110.0">
+	              <columnConstraints>
+	                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+	              </columnConstraints>
+	              <rowConstraints>
+	                <RowConstraints maxHeight="322.0" minHeight="10.0" prefHeight="313.0" vgrow="SOMETIMES" />
+	                <RowConstraints maxHeight="294.0" minHeight="10.0" prefHeight="287.0" vgrow="SOMETIMES" />
+	                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+	              </rowConstraints>
+	               <children>
+	                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+                           <children>
+                              <Button fx:id="start" mnemonicParsing="false" onAction="#startAction" prefHeight="80.0" prefWidth="90.0" text="Start" textFill="#4b0ae4" />
+                              <Button fx:id="refresh" mnemonicParsing="false" onAction="#refreshAction" prefHeight="80.0" prefWidth="90.0" text="Refresh" textFill="#0ef812" />
+                           </children>
+	                  </VBox>
+	               </children>
+	            </GridPane>
+	            <GridPane prefHeight="900.0" prefWidth="540.0">
+	              <columnConstraints>
+	                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+	              </columnConstraints>
+	              <rowConstraints>
+	                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+	              </rowConstraints>
+	               <children>
+	                  <TextArea fx:id="docTextArea" prefHeight="200.0" prefWidth="200.0" />
+	               </children>
+	            </GridPane>
+	         </children>
+	      </HBox>
+	   </children>
+      </AnchorPane>
+   </center>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem fx:id="open" mnemonicParsing="false" onAction="#openAction" text="Open" />
+                  <MenuItem fx:id="save" mnemonicParsing="false" onAction="#saveAction" text="Save" />
+                  <MenuItem fx:id="saveAs" mnemonicParsing="false" onAction="#saveAsAction" text="SaveAs" />
+              <MenuItem fx:id="close" mnemonicParsing="false" onAction="#quitAction" text="Quit" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+</BorderPane>

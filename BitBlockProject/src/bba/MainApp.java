@@ -1,22 +1,43 @@
 package bba;
 
-import java.io.IOException;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import bba.model.*;
 
 /*
- * @author Josh Thorsson
+ * @author Josh Thorsson and Triston Scallan
  */
 
 public class MainApp extends Application 
 {
+	private static Stage stage;
+		
+	@Override
+	public void start(Stage primaryStage) {
+		try {
+			Parent root = FXMLLoader.load(getClass().getResource("view/BBGui.fxml"));
+			primaryStage.setScene(new Scene(root, 1000, 900));
+			primaryStage.setTitle("BitBlockAnalyzer");
+			primaryStage.show();
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
+	public static Stage getStage() {		//use this to retrieve the stage
+		return stage; 
+	}
+	
+	public static void main(String[] args) 
+	{
+		launch(args);
+	}
+	
+	
+	/* Old code for the two separate views
 	public static Stage primaryStage;
 	private BorderPane rootLayout;
 
@@ -70,9 +91,5 @@ public class MainApp extends Application
 	{
 		return primaryStage;
 	}
-
-	public static void main(String[] args) 
-	{
-		launch(args);
-	}
+	*/
 }

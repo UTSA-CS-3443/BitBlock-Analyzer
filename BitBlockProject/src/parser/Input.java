@@ -26,8 +26,8 @@ public class Input {
 	 * @throws FileNotFoundException
 	 * @throws NullPointerException if the pathname arguement is null
 	 */
-	public Input(String file, int ID) throws FileNotFoundException, NullPointerException {
-		try (Scanner in = new Scanner(new File(file))){
+	public Input(File file, int ID) throws FileNotFoundException, NullPointerException {
+		try (Scanner in = new Scanner(file)){
 			while (in.hasNext()) {
 				this.sourceCodeLines.add(in.next());
 			}
