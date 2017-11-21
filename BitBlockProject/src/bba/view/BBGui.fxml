@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="900.0" maxWidth="1000.0" minHeight="200.0" minWidth="200.0" prefHeight="900.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bba.controller.BitBlockGuiController">
+<BorderPane maxHeight="900.0" maxWidth="1000.0" minHeight="200.0" minWidth="200.0" prefHeight="900.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bba.controller.BitBlockGuiController">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -62,7 +62,7 @@
 	                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
 	              </rowConstraints>
 	               <children>
-	                  <TextArea fx:id="docTextArea" prefHeight="200.0" prefWidth="200.0" />
+	                  <TextArea fx:id="docTextArea" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="200.0" />
 	               </children>
 	            </GridPane>
 	         </children>
