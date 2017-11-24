@@ -137,7 +137,7 @@ public class BitBlockGuiController {
 		
 		File file = fc.showOpenDialog(MainApp.getStage());
 		
-		// checking the file choosen by user 
+		// checking the file chosen by user  
 		
 		if (file != null) {
 			try (Scanner scan = new Scanner(file)) {
@@ -165,7 +165,7 @@ public class BitBlockGuiController {
 	}
 
 	/**
-	 * Method to do save As click 
+	 * Method to do save As click and open the window with some functionality 
 	 */
 	private void handleSaveAsClick() {
 		FileChooser fc = new FileChooser();
