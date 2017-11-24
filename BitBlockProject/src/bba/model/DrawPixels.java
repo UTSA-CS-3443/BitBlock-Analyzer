@@ -2,19 +2,12 @@ package bba.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import javafx.application.Application;
-import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
 import parser.TokenizedPixel;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.image.PixelReader;
 import javafx.scene.image.PixelWriter;
 import javafx.scene.paint.Color;
-import javafx.scene.image.WritableImage;
+
 
 /*
  * @author Josh Thorsson
