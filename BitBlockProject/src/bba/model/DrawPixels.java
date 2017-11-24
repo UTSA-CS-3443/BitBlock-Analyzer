@@ -50,9 +50,5 @@ public class DrawPixels {
 		}
 		
 		return pixelCanvas;
-	}
-	
-	
-
-	
+	}	
 }
