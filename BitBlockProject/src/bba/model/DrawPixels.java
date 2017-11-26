@@ -20,6 +20,7 @@ public class DrawPixels {
 	
 	private List<Color> tColorList = new ArrayList<Color>();
 	private List<String> tTokenList = new ArrayList<String>();
+	private Color cPixel;
 	/*
 	 * @param canvas The canvas we will work on to draw the BitBlock
 	 * @param width The width of each pixel
@@ -33,6 +34,7 @@ public class DrawPixels {
 		PixelWriter pixelWriter = gc.getPixelWriter();
 		TokenizedPixel tPixel = new TokenizedPixel(null, null);
 		
+		
 		/*
 		 * Add bit block tokens to the arrayList used to populate the WritableImage
 		 */
@@ -42,12 +44,20 @@ public class DrawPixels {
 			tTokenList.add(pixelList.get(i).getToken());
 		}
 		
-		
-		
-		for (int y = 0; y < canvas.getHeight(); y++) 
+		while (tColorList != null)
 		{
+			int iColorCounter = 0;
 			
+			cPixel = tColorList.get(iColorCounter);
+			
+			pixelWriter.setColor(width, height, cPixel);
 		}
+		
+		
+		//for (int y = 0; y < canvas.getHeight(); y++) 
+	//	{
+			
+		//}
 		
 		return pixelCanvas;
 	}	
