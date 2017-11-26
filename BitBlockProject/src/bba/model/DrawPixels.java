@@ -27,16 +27,19 @@ public class DrawPixels {
 	 * @param height The height of each pixel
 	 * @param pixelList the list of pixels obtained from SCParser.java.  Each object should contain the token and color associated with it
 	 */
-	public Canvas drawPixels(Canvas canvas, int width, int height, List<TokenizedPixel> pixelList)
+	public Canvas drawPixels(Canvas canvas, List<TokenizedPixel> pixelList)
 	{
-		Canvas pixelCanvas = new Canvas(canvas.getWidth(), canvas.getHeight());
-		GraphicsContext gc = pixelCanvas.getGraphicsContext2D();
+		int iWidth = (int) canvas.getWidth();
+		int iHeight = (int) canvas.getHeight();
+		final int iBitHeight = 1;
+		//Canvas pixelCanvas = new Canvas(iWidth, iHeight);
+		GraphicsContext gc = canvas.getGraphicsContext2D();
 		PixelWriter pixelWriter = gc.getPixelWriter();
-		TokenizedPixel tPixel = new TokenizedPixel(null, null);
+		//TokenizedPixel tPixel = new TokenizedPixel(null, null);
 		
 		
 		/*
-		 * Add bit block tokens to the arrayList used to populate the WritableImage
+		 * Add bit block tokens to the arrayList used to populate the Canvas
 		 */
 		for (int i = 0; i < pixelList.size(); i++)
 		{		
@@ -44,21 +47,18 @@ public class DrawPixels {
 			tTokenList.add(pixelList.get(i).getToken());
 		}
 		
-		while (tColorList != null)
+		/*
+		 * Cycle through the ArrayList of colors and add them to the canvas
+		 */
+		for (int y = 0; y < tColorList.size(); y++)
 		{
-			int iColorCounter = 0;
-			
-			cPixel = tColorList.get(iColorCounter);
-			
-			pixelWriter.setColor(width, height, cPixel);
+			for (int x = 1; x < iWidth; x++)
+			{
+				cPixel = tColorList.get(y);
+				pixelWriter.setColor(x, iBitHeight, cPixel);
+			}
 		}
 		
-		
-		//for (int y = 0; y < canvas.getHeight(); y++) 
-	//	{
-			
-		//}
-		
-		return pixelCanvas;
+		return canvas;
 	}	
 }

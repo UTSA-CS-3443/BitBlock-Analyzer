@@ -11,7 +11,7 @@ import parser.TokenizedPixel;
  * 
  * WriteText displays the token associated with a color on the text field
  */
-public class WriteText {
+public class DisplayTextOnClick {
 	
 	private List<Color> tColorList = new ArrayList<Color>();
 	private List<String> tTokenList = new ArrayList<String>();
