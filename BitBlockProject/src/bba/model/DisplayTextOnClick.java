@@ -9,21 +9,20 @@ import parser.TokenizedPixel;
 /*
  * @author Josh Thorsson
  * 
- * WriteText displays the token associated with a color on the text field
+ * DisplayTextOnClick displays the token associated with a color on the text field
  */
 public class DisplayTextOnClick {
 	
 	private List<Color> tColorList = new ArrayList<Color>();
 	private List<String> tTokenList = new ArrayList<String>();
+	private String sToken;
 	/*
 	 * @param textField The text field responsible for displaying token
+	 * @param color The color the user clicks on in the bitblock
 	 * @param pixelList the list of pixels obtained from SCParser.java.  Each object should contain the token and color associated with it
 	 */
-	public TextField writeText(TextField textField, List<TokenizedPixel> pixelList)
-	{
-		TextField tField = new TextField();
-		TokenizedPixel tPixel = new TokenizedPixel(null, null);
-		
+	public TextField writeText(TextField textField, Color color, List<TokenizedPixel> pixelList)
+	{		
 		/*
 		 * Add bit block tokens to the arrayList used to populate the text field
 		 */
@@ -33,8 +32,19 @@ public class DisplayTextOnClick {
 			tTokenList.add(pixelList.get(i).getToken());
 		}
 		
-		
-		return tField;
+		/*
+		 * Checks whether the color passed in (based on users click) matches the color in the list
+		 * if it does, this is written in the text field
+		 */
+		for (int i = 0; i < tColorList.size(); i++)
+		{
+			if (tColorList.get(i) == color)
+			{
+				sToken = tTokenList.get(i);
+				textField.setText(sToken);
+			}
+		}
+		return textField;
 	}	
 }
 
