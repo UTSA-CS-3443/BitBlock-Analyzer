@@ -14,6 +14,12 @@ public class BitBlock {
 	/** the arrayList of TokenizedPixel type to construct a BitBlock */
 	private List<TokenizedPixel> pixelList = new ArrayList<TokenizedPixel>();
 	
+	/** The constructor. <p> takes an input object and creates the associated pixelList from it */
+	public BitBlock(Input input) {
+		SCParser parser = new SCParser();
+		parser.parse(input);
+		this.pixelList = parser.getPixelList();
+	}
 	
 	/**
 	 * @return the pixelList
@@ -64,7 +70,5 @@ public class BitBlock {
 		int[] result = {x, y, r}; 
 		return result;
 	}
-	
-	//method to retrieve the parsed data from SCParser
 	
 }
