@@ -29,31 +29,43 @@ public class BitBlockGuiController {
 	/////MENU BAR IDs
 	@FXML
 	private MenuItem close;		// declaring close
+	
 	@FXML 
 	private MenuItem save; 		// declaring Save
+	
 	@FXML 
 	private MenuItem saveAs;		// Declaring SaveAs
+	
 	@FXML
 	private MenuItem open;		// Declaring Open
+	
 	@FXML
 	//////LEFT PANEL
 	private TextArea docTextArea;// Declaring docTextArea
+	
 	@FXML
 	//////MIDDLE PANEL
 	private Button start;
+	
 	@FXML
 	private Button refresh;
+	
 	@FXML
 	//////RIGHT PANEL
 	private Canvas canvas;
+	
 	@FXML
 	private TextField codeField;
+	
 	@FXML
 	private TextField statTextArea;
+	
 	////variables for the controller class
 	private File dataFile = null;	//temporarily hold a file
+	
 	////variables for storing the inputs and id'ing them
 	private int idIndex = 0;			//start at 0
+	
 	private List<Input> inputM = new ArrayList<Input>();
 	
 	//private GraphicsContext gc;
