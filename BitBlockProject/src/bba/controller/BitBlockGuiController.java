@@ -132,13 +132,25 @@ public class BitBlockGuiController {
 	void aboutAction(ActionEvent event) {
 		Alert alert = new Alert(AlertType.INFORMATION);
 		    	alert.setTitle("About");
-		    alert.setHeaderText(null);
-		    alert.setContentText("About: \n"
+		    alert.setHeaderText("Bit Block Analyzer");
+		    alert.setContentText(
+		    		"About: \n"
 		    		+ "\t The BitBlock-Analyzer is an application designed\n"
 		    		+ "\t to parse Java source code to produce statistics\n"
 		    		+ "\t of the code and create a visual representation\n"
 		    		+ "\t of the code itself in the form of colored pixels\n"
+		    		+ "\n"
+		    		+ "\t The app was born out of the idea of novelty,\n"
+		    		+ "\t creating new ways of looking at code while\n"
+		    		+ "\t also showing the data in an artistic perspective.\n"
+		    		+ "\t Given it's consolidated form and visual \n"
+		    		+ "\t appearance, it can give a summary of code\n"
+		    		+ "\t and make it more physically portable.\n"
+		    		+ "\t simply print a color block and scan it later.\n"
+		    		+ "\t While QR does this too, you can visually see\n"
+		    		+ "\t the code to also have a gist of it as well.\n"
 		    		+ "Authors: \n"
+		    		+ "\t - Team JavaFox -\n"
 		    		+ "\t Triston Scallan, Josh Thorsson,\n "
 		    		+ "\t Anthony Hoang, Irfen Syed\n"
 		    		+ "Build Information: \n"
