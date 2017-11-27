@@ -1,9 +1,15 @@
 package bba.controller;
 
 import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.scene.Scene;
 import javafx.scene.canvas.*;
 //import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 import javafx.stage.FileChooser.ExtensionFilter;
 import parser.Input;
 import javafx.application.Platform;
@@ -38,6 +44,9 @@ public class BitBlockGuiController {
 	
 	@FXML
 	private MenuItem open;		// Declaring Open
+	
+	@FXML 
+	public MenuItem about;
 	
 	@FXML
 	//////LEFT PANEL
@@ -108,6 +117,30 @@ public class BitBlockGuiController {
 	@FXML
 	void refreshAction(ActionEvent event) {
 		
+	}
+	
+	
+	@FXML 
+	void aboutAction(ActionEvent event) {
+		/*
+		Stage stage = new Stage();
+		Scene scene = new Scene(new VBox(400));
+		stage.setTitle("About BitBlock");
+		stage.setHeight(400);
+		stage.setMaxWidth(600);
+		stage.setScene(scene);
+		stage.show();
+		*/
+		
+		final Stage dialog = new Stage();
+        dialog.initModality(Modality.APPLICATION_MODAL);
+        Window primaryStage = null;
+		dialog.initOwner(primaryStage);
+        VBox dialogVbox = new VBox(20);
+        dialogVbox.getChildren().add(new Text("\t The BitBlock-Analyzer is an application designed to parse Java \n source code to produce statistics about the code and create a visual \n representation of the code itself in the form of colored pixels.\n"));
+        Scene dialogScene = new Scene(dialogVbox, 400, 200);
+        dialog.setScene(dialogScene);
+        dialog.show();
 	}
 	
 	/**
