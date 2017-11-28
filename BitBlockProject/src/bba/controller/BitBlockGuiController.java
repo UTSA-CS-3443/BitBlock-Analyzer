@@ -9,6 +9,7 @@ import javafx.stage.FileChooser.ExtensionFilter;
 import bba.model.*;
 import parser.BitBlock;
 import parser.Input;
+import parser.TokenizedPixel;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -269,6 +270,10 @@ public class BitBlockGuiController {
 	
 	private void handleStartClick() {
 		bb = new BitBlock(inputM.get(0));
+		for (TokenizedPixel pixel : bb.getPixelList()) {
+			String token = pixel.getToken();
+			System.out.println(token);
+		} 
 		DrawPixels pixels = new DrawPixels();
 		canvas = pixels.drawPixels(canvas, bb.getPixelList());
 		//update the buttons abled to be clicked

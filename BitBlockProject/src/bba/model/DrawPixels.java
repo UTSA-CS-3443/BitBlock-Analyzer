@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import parser.ColorPalette;
 import parser.TokenizedPixel;
 import javafx.scene.image.PixelWriter;
 import javafx.scene.paint.Color;

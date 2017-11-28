@@ -1,6 +1,7 @@
 package parser;
 
 import java.util.*;
+import javafx.scene.paint.Color;
 
 /**
  * Parses the Source Code. 
@@ -92,7 +93,7 @@ public class SCParser {
 			} else if (line.contains("/*")) { //parse lines as literals until "*/"
 				LiteralsToPixels(line);
 				continue;
-			} else if (line.contains(" * ")) { //use "^[[:space:]]*\\*" later
+			} else if (line.contains("* ")) { //use "^[\\s]*\\*" later
 				LiteralsToPixels(line);
 				continue;
 			} else if (line.contains("*/")) {
@@ -101,22 +102,20 @@ public class SCParser {
 			} //not a comment then
 			
 			//tokenize the line
-			String[] splitLine = line.split(" "); //raw array of tokens
 			ArrayList<String> tempList = new ArrayList<String>();
+			String[] splitLine = line.split(" "); //raw array of tokens
 			for (String token : splitLine) {
 				tempList.add(token);
 			}
-			tokenList = recursiveTokenize(tempList, 0);
 			
-			//Print out the line for testing
-			for(String temp: tempList) {
-				System.out.print(temp + " ");
-			}
-			System.out.print("\n");
+			ArrayList<String> emptyList = new ArrayList<String>();
+			tokenList = recursiveTokenize(tempList, emptyList, 0);
 			
+			int parseCode = 0; //1 = quote pairs.
 			for (String token : tokenList) {
-				if (token.contains("\"")) { //case: quote pairs
+				if (token.contains("\"") || parseCode == 1) { //case: quote pairs
 					LiteralsToPixels(token);
+					parseCode = (parseCode == 0) ? 1 : 0; //toggle between 0 and 1.
 				} //TODO: later split this to JavaPALETTE and LitPALETTE so that single chars don't pass as TRUE
 				else if (ColorPalette.PALETTE.containsKey(token)) { //case: token is on the map
 					TokenizedPixel pixel = new TokenizedPixel(token, ColorPalette.PALETTE.get(token));
@@ -128,54 +127,64 @@ public class SCParser {
 		}
 	}
 	
-	public ArrayList<String> recursiveTokenize(ArrayList<String> tempList, int done) {
-		if (done == 0) {
+	public ArrayList<String> recursiveTokenize(ArrayList<String> tempList, ArrayList<String> newList, int done) { //cant figure out what's wrong
+		if (done == 1) {
 			return tempList;
 		}
-		ArrayList<String> newList = new ArrayList<String>();
+		//newList = tempList;
 		int pass = 1;
-		for (String token : tempList) {
+		
+		for (int i = 0; i < tempList.size(); i++) {
+			String token = tempList.get(i);
+			
 			//CASE: token has `Class.methods`
 			if (token.matches(".+\\..+") && !token.contains(".txt")) {
 				pass = 0;
-				String[] tempSplit = token.split(".");
+				
 				//add the split tokens to the end of the new list
-				for (int i = 0; i < tempSplit.length; i++) { 
-					newList.add(tempSplit[i]);
-					if (i != tempSplit.length - 1) {
-						newList.add(".");
-					}
-				}
+				String[] tempSplit = token.split("(?<=\\.)|(?=\\.)");
+				for (String temp : tempSplit) { 
+					newList.add(temp);
+				} 
 			} else if (token.matches(".+;.*")) { //CASE: ";"
 				pass = 0;
 				String[] tempSplit = token.split("(?<=;)|(?=;)");
 				for (String temp : tempSplit) { 
 					newList.add(temp);
 				}
-			} else if (token.contains("(") && !token.matches(" \\( ")) { //CASE: ( or ), and { or } later
+				
+			} else if (token.matches(".*\\(.+") || token.matches(".+\\(.*")) { //CASE: ( or ), and { or } later
 				pass = 0;
 				String[] tempSplit = token.split("(?<=\\()|(?=\\()");
 				for (String temp : tempSplit) { 
 					newList.add(temp);
 				}
-			} else if (token.contains(")") && !token.matches(" \\) ")) { //CASE: ( or ), and { or } later
+			} else if (token.matches(".*\\).+") || token.matches(".+\\).*")) { //CASE: ( or ), and { or } later
 				pass = 0;
 				String[] tempSplit = token.split("(?<=\\))|(?=\\))");
 				for (String temp : tempSplit) { 
 					newList.add(temp);
 				}
 			} else { //CASE: token doesn't need to be split up further.
-				newList.add(token);
+				token.trim();
+				token.replaceAll("\\s", "");
+				if (!token.isEmpty()) {
+					newList.add(token);
+				}
 			}
 		}
 		//if pass is still 1, then it will end recursion and return the final tokenized version.
-		return recursiveTokenize(newList, pass);
+		ArrayList<String> emptyList = new ArrayList<String>();
+		return recursiveTokenize(newList, emptyList, pass);
 	}
 	
 	public void LiteralsToPixels(String token) {
 		String[] tempSplit = token.split("(?<!^)");
 		for (String temp: tempSplit) {
 			TokenizedPixel pixel = new TokenizedPixel(temp, ColorPalette.PALETTE.get(temp));
+			if (ColorPalette.PALETTE.get(temp) == null) {
+				pixel.setColor(Color.BLACK);
+			}
 			pixelList.add(pixel);
 		}
 	}
