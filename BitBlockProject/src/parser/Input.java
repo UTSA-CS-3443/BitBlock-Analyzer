@@ -29,7 +29,7 @@ public class Input {
 	public Input(File file, int ID) throws FileNotFoundException, NullPointerException {
 		try (Scanner in = new Scanner(file)){
 			while (in.hasNext()) {
-				this.sourceCodeLines.add(in.next());
+				this.sourceCodeLines.add(in.nextLine());
 			}
 		} 
 		
