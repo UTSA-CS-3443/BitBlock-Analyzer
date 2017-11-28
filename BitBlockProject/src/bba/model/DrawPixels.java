@@ -55,8 +55,11 @@ public class DrawPixels {
 		{
 			for (int x = 1; x < iWidth; x++)
 			{
-				cPixel = tColorList.get(y);
-				pixelWriter.setColor(x, iBitHeight, cPixel);
+				for (int j = 1; x < iHeight; j++)
+				{
+					cPixel = tColorList.get(y);
+					pixelWriter.setColor(x, j, cPixel);
+				}
 			}
 		}
 		
