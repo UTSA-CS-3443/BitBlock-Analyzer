@@ -147,7 +147,7 @@ public class BitBlockGuiController {
 		    		+ "Authors: \n"
 		    		+ "\t - Team JavaFox -\n"
 		    		+ "\t Triston Scallan, Josh Thorsson,\n "
-		    		+ "\t Anthony Hoang, Irfen Syed\n"
+		    		+ "\t Anthony Hoang, Irfan Syed\n"
 		    		+ "Build Information: \n"
 		    		+ "\tVersion 1.0.0\n" 
 				+ "\tDate: 2017-27-17\n"
