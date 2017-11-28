@@ -2,15 +2,9 @@ package bba.controller;
 
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
-import javafx.scene.Scene;
 import javafx.scene.canvas.*;
 //import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import javafx.stage.Window;
 import javafx.stage.FileChooser.ExtensionFilter;
 import bba.model.*;
 import parser.BitBlock;

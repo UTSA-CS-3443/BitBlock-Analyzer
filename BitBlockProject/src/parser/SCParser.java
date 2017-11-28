@@ -21,7 +21,7 @@ public class SCParser {
 		// second column, holds the resulted parsed colors 
 		/** the arrayList of TokenizedPixel type to construct a BitBlock */
 	private List<TokenizedPixel> pixelList = new ArrayList<TokenizedPixel>();
-
+	
 	
 	/**
 	 * @return the tokenList
@@ -83,24 +83,20 @@ public class SCParser {
 		return this.pixelList.get(index);
 	}
 	
-	//method to parse a string of literals
-	//method to parse statements
-	//method to determine built in statements vs. user-created statements and parse accordingly
-	//TODO: if tokens are initially created with whitespace delimiters, need to further separate tokens with context related delimiters	
-	//TODO: if a token match against the hashmap produces no value, then split the token into literals		
 	public void parse(Input input) { //DEMO VERSION
-		
-		//case 1: comments
-		//case 2: non-comments
-		//break up the tokens
-		//test if token is on the hashmap, if so, then do some test cases for literals
 		for (String line : input.getSourceCodeLines()) {
 			//check for if comment
 			if (line.contains("//") ) { //parse line as literals
+				LiteralsToPixels(line);
 				continue;
 			} else if (line.contains("/*")) { //parse lines as literals until "*/"
-				while (!line.contains("*/")) {
-				} //since while stops at */, parse this last line as literals
+				LiteralsToPixels(line);
+				continue;
+			} else if (line.contains(" * ")) { //use "^[[:space:]]*\\*" later
+				LiteralsToPixels(line);
+				continue;
+			} else if (line.contains("*/")) {
+				LiteralsToPixels(line);
 				continue;
 			} //not a comment then
 			
@@ -110,7 +106,7 @@ public class SCParser {
 			for (String token : splitLine) {
 				tempList.add(token);
 			}
-			tempList = recursiveTokenize(tempList, 0);
+			tokenList = recursiveTokenize(tempList, 0);
 			
 			//Print out the line for testing
 			for(String temp: tempList) {
@@ -118,9 +114,17 @@ public class SCParser {
 			}
 			System.out.print("\n");
 			
-			//case 3: quote pairs, for first ", process all as literals until " (and not \") 
-			
-			
+			for (String token : tokenList) {
+				if (token.contains("\"")) { //case: quote pairs
+					LiteralsToPixels(token);
+				} //TODO: later split this to JavaPALETTE and LitPALETTE so that single chars don't pass as TRUE
+				else if (ColorPalette.PALETTE.containsKey(token)) { //case: token is on the map
+					TokenizedPixel pixel = new TokenizedPixel(token, ColorPalette.PALETTE.get(token));
+					pixelList.add(pixel);
+				} else { //case: token isn't on the map
+					LiteralsToPixels(token);
+				}
+			}	
 		}
 	}
 	
@@ -168,4 +172,11 @@ public class SCParser {
 		return recursiveTokenize(newList, pass);
 	}
 	
+	public void LiteralsToPixels(String token) {
+		String[] tempSplit = token.split("(?<!^)");
+		for (String temp: tempSplit) {
+			TokenizedPixel pixel = new TokenizedPixel(temp, ColorPalette.PALETTE.get(temp));
+			pixelList.add(pixel);
+		}
+	}
 }
