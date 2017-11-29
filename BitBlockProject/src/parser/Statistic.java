@@ -22,20 +22,30 @@ public class Statistic {
 	/**
 	 * set the token array list
 	 */
+	
+	public Statistic(List<String> tokenList, List<TokenizedPixel> pixelList)
+	{
+		this.tokenList = tokenList;
+		uniqToken.addAll(tokenList);
+		
+		this.pixelList = pixelList;
+		uniqPixel.addAll(pixelList);
+	}
+	
+	/**
+	 
 	public void setTokenList(List<String> tokenList)
 	{
 		this.tokenList = tokenList;
 		uniqToken.addAll(tokenList);
 	}
 	
-	/**
-	 * set the pixel array list
-	 */
 	public void setPixelList(List<TokenizedPixel> pixelList)
 	{
 		this.pixelList = pixelList;
 		uniqPixel.addAll(pixelList);
 	}
+	*/
 	
 	/**
 	 * @return count all token
