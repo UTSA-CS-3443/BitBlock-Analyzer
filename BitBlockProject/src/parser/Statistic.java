@@ -32,8 +32,12 @@ public class Statistic {
 		uniqPixel.addAll(pixelList);
 	}
 	
-	/**
 	 
+	public Statistic() {
+		
+	}
+
+
 	public void setTokenList(List<String> tokenList)
 	{
 		this.tokenList = tokenList;
@@ -45,7 +49,6 @@ public class Statistic {
 		this.pixelList = pixelList;
 		uniqPixel.addAll(pixelList);
 	}
-	*/
 	
 	/**
 	 * @return count all token
@@ -53,6 +56,14 @@ public class Statistic {
 	public int countToken()
 	{
 		return tokenList.size();
+	}
+	
+	/**
+	 * @return count all token
+	 */
+	public int countPixel()
+	{
+		return pixelList.size();
 	}
 	
 	/**
@@ -101,6 +112,6 @@ public class Statistic {
 		
 		return count;
 	}
-	
+
 	
 }
