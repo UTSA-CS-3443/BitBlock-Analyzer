@@ -183,6 +183,11 @@ public class BitBlockGuiController {
 		handleSaveClick();
 	}
 	
+	@FXML 
+	void textOnClick(ActionEvent event) {   //need to get action for displayTextonClick 
+		
+	}
+	
 	/**
 	 * Method to open a window which can load Text files 
 	 */
@@ -334,5 +339,12 @@ public class BitBlockGuiController {
 		bb = new BitBlock(tempInput);
 		DrawPixels pixels = new DrawPixels();
 		canvas = pixels.drawPixels(canvas, bb.getPixelList());
+	}
+	
+	/*
+	 * Handler for display text on click 
+	 */
+	private void handleOnClick() {
+		
 	}
 }
