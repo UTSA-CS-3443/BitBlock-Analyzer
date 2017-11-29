@@ -270,12 +270,21 @@ public class BitBlockGuiController {
 	
 	private void handleStartClick() {
 		bb = new BitBlock(inputM.get(0));
+		
+		// test printing token
 		for (TokenizedPixel pixel : bb.getPixelList()) {
 			String token = pixel.getToken();
 			System.out.println(token);
 		} 
-		DrawPixels pixels = new DrawPixels();
-		canvas = pixels.drawPixels(canvas, bb.getPixelList());
+		
+		// Stat
+		DisplayStatOnClick stat = new DisplayStatOnClick();
+		statTextArea = stat.DisplayStatOnClick(statTextArea, bb.getPixelList());
+		
+		// NOT WORKING YET
+		//DrawPixels pixels = new DrawPixels();
+		//canvas = pixels.drawPixels(canvas, bb.getPixelList());
+		
 		//update the buttons abled to be clicked
 		start.setDisable(true);
 		refresh.setDisable(false);
