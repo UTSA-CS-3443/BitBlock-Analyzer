@@ -22,27 +22,52 @@ public class Statistic {
 	/**
 	 * set the token array list
 	 */
+	
+	public Statistic(List<TokenizedPixel> pixelList)
+	{
+		//set pixelList
+		setPixelList(pixelList);
+		//extract tokens from pixelList and set tokenList
+		List<String> tokenList = new ArrayList<String>();
+		for(TokenizedPixel pixel : pixelList) {
+			String token = pixel.getToken();
+			tokenList.add(token);
+		}
+		setTokenList(tokenList);
+	}
+	
+	 
+	public Statistic() {
+		
+	}
+
+
 	public void setTokenList(List<String> tokenList)
 	{
 		this.tokenList = tokenList;
 		uniqToken.addAll(tokenList);
 	}
 	
-	/**
-	 * set the pixel array list
-	 */
 	public void setPixelList(List<TokenizedPixel> pixelList)
 	{
 		this.pixelList = pixelList;
 		uniqPixel.addAll(pixelList);
 	}
-	
+
 	/**
 	 * @return count all token
 	 */
 	public int countToken()
 	{
 		return tokenList.size();
+	}
+	
+	/**
+	 * @return count all token
+	 */
+	public int countPixel()
+	{
+		return pixelList.size();
 	}
 	
 	/**
@@ -78,6 +103,39 @@ public class Statistic {
 	}
 	
 	/**
+	 * @return token of the mode of the list (i.e. most appearing token)
+	 */
+	public String getMode() { //TODO: set up the mode functions
+		String token = null;
+		String lastToken = null;
+		int max = 0;
+		int count = 0;
+		tokenList.sort((String r1, String r2) -> r1.compareTo(r2));
+		Object[] result = new Object[] {"null", max};
+		for(String word: this.tokenList) {
+			System.out.println(word);
+			//test if it's an "overly common" token, like alphanumerics or delimiters
+			if (word.matches("^[\\(\\);\\.\\w]$")) {
+				lastToken = word;
+				continue;
+			}
+			//mode counting tests
+			if (word.equals(lastToken)) { //if this token is the same as the last one
+				count++;
+			} else {
+				if (max < count) {
+					max = count;
+					count = 0;
+					result = new Object[] {token, max};;
+				}
+			}
+			lastToken = word;
+		}
+		
+		return token = (String) result[0];
+	}
+	
+	/**
 	 * @return  the number of loop in the source
 	 */
 	public int countLoop()
@@ -91,6 +149,6 @@ public class Statistic {
 		
 		return count;
 	}
-	
+
 	
 }

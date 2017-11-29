@@ -44,6 +44,7 @@ public class ColorPalette {
 	    	aMap.put("final", Color.web("#000"));
 	    	aMap.put("new", Color.web("#000"));
 	    		//commonly called class-objects
+	    	aMap.put("Main", Color.web("#000"));
 	    	aMap.put("List", Color.web("#000"));
 	    	aMap.put("Collections", Color.web("#000"));
 	    	aMap.put("Iterator", Color.web("#000"));
@@ -70,9 +71,13 @@ public class ColorPalette {
 	    	aMap.put("switch", Color.web("#000"));
 	    	aMap.put("case", Color.web("#000"));
 	    	aMap.put("return", Color.web("#000"));
+	    	aMap.put("try", Color.web("#000"));
+	    	aMap.put("catch", Color.web("#000"));
+	    	aMap.put("finally", Color.web("#000"));
 	    		//logic
 	    	aMap.put("true", Color.web("#000"));
 	    	aMap.put("false", Color.web("#000"));
+	    	aMap.put("null", Color.web("#000"));
 	    	aMap.put("==", Color.web("#000"));
 	    	aMap.put("!=", Color.web("#000"));
 	    	aMap.put("<", Color.web("#000"));
@@ -81,11 +86,11 @@ public class ColorPalette {
 	    	aMap.put(">=", Color.web("#000"));
 	    	aMap.put("&&", Color.web("#000"));
 	    	aMap.put("||", Color.web("#000"));
-	    		//comments and javadoc  TODO: all tokens after and before comments should be ignored
+	    		//comments and javadoc: all tokens after and before comments should be ignored
 	    	aMap.put("//", Color.web("#000"));
 	    	aMap.put("/*", Color.web("#000"));
 	    	aMap.put("/**", Color.web("#000"));
-	    	//aMap.put("*", Color.web("#000")); TODO: KEEP IN MIND ABOUT LINES THAT START WITH STAR
+	    	//aMap.put("*", Color.web("#000")); 
 	    	aMap.put("*/", Color.web("#000"));
 	    	aMap.put("@{word}", Color.web("#000")); //TODO: write logic to ignore tokens of @{words}
 	    	aMap.put(">", Color.web("#000"));
@@ -175,8 +180,10 @@ public class ColorPalette {
 	    	aMap.put("`", Color.web("#000"));
 	    	aMap.put("~", Color.web("#000"));
 	    		//delimiters
+	    	aMap.put(" ", Color.web("#000"));
+	    	aMap.put("/t", Color.web("#000"));
 	    	aMap.put(",", Color.web("#000"));
-	    	aMap.put(".", Color.web("#000"));	//TODO: if "." is found in a token, potentially break up the token before and after the periods, to see if any of them match a common method
+	    	aMap.put(".", Color.web("#000"));	
 	    	aMap.put(";", Color.web("#000"));
 	    	aMap.put(":", Color.web("#000"));
 	    	aMap.put("'", Color.web("#000"));
@@ -188,6 +195,8 @@ public class ColorPalette {
 	    	aMap.put("[", Color.web("#000"));
 	    	aMap.put("]", Color.web("#000"));
 	    	aMap.put("\n", Color.web("#000")); 	//newline!
+	    		//to define the end of a string of literals
+	    	aMap.put("EOS", Color.web("#FFF"));	//EOS is End Of String. WHITE.
 	    	PALETTE = Collections.unmodifiableMap(aMap);
 	}
 	
