@@ -13,6 +13,7 @@ public class Statistic {
 	
 	
 	private List<String> tokenList = new ArrayList<String>();
+	@SuppressWarnings("unused")
 	private List<TokenizedPixel> pixelList = new ArrayList<TokenizedPixel>();
 	
 	// store token and pixel as hashset, to count unique
@@ -25,11 +26,8 @@ public class Statistic {
 	
 	public Statistic(List<String> tokenList, List<TokenizedPixel> pixelList)
 	{
-		this.tokenList = tokenList;
-		uniqToken.addAll(tokenList);
-		
-		this.pixelList = pixelList;
-		uniqPixel.addAll(pixelList);
+		setPixelList(pixelList);
+		setTokenList(tokenList);
 	}
 	
 	 
@@ -50,6 +48,15 @@ public class Statistic {
 		uniqPixel.addAll(pixelList);
 	}
 	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() { //TODO: set it up for the textArea
+		return "Statistic [countToken()=" + countToken() + ", countUniqToken()=" + countUniqToken()
+				+ ", countUniqPixel()=" + countUniqPixel() + ", countLoop()=" + countLoop() + "]";
+	}
+
 	/**
 	 * @return count all token
 	 */
@@ -96,6 +103,19 @@ public class Statistic {
 				count ++;
 		
 		return count;
+	}
+	
+	/**
+	 * @return token of the mode of the list (i.e. most appearing token)
+	 */
+	public String getMode(List<String> tokenList) { //TODO: set up the mode functions
+		String token = null;
+		tokenList.sort((String r1, String r2) -> r1.compareTo(r2));
+		for(String word: tokenList) {
+			System.out.println(word);
+		}
+		
+		return token;
 	}
 	
 	/**
