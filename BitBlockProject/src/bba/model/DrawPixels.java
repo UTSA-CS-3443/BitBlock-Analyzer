@@ -3,7 +3,7 @@ package bba.model;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.WritableImage;
 import parser.ColorPalette;
 import parser.TokenizedPixel;
 import javafx.scene.image.PixelWriter;
@@ -32,11 +32,9 @@ public class DrawPixels {
 	{
 		int iWidth = (int) canvas.getWidth();
 		int iHeight = (int) canvas.getHeight();
-		final int iBitHeight = 1;
-		//Canvas pixelCanvas = new Canvas(iWidth, iHeight);
-		GraphicsContext gc = canvas.getGraphicsContext2D();
-		PixelWriter pixelWriter = gc.getPixelWriter();
-		//TokenizedPixel tPixel = new TokenizedPixel(null, null);
+		WritableImage bitBlock = new WritableImage(iWidth, iHeight);
+		PixelWriter pixelWriter = bitBlock.getPixelWriter();
+
 		
 		
 		/*
