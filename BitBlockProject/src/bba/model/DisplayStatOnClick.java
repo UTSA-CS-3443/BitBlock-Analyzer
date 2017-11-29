@@ -13,19 +13,19 @@ import parser.TokenizedPixel;
  * Display the statistics on textfield when on click
  */
 public class DisplayStatOnClick {
-	
-	private List<Color> tColorList = new ArrayList<Color>();
-	private List<String> tTokenList = new ArrayList<String>();
-	private String output;
 
-	public TextField writeText(TextField textField,List<String> tokenList, List<TokenizedPixel> pixelList)
+	private List<TokenizedPixel> pixelList = new ArrayList<TokenizedPixel>();
+	private static String output;
+
+	public TextField DisplayStatOnClick(TextField textField, List<TokenizedPixel> pixelList)
 	{
-		
-		Statistic stat = new Statistic(tokenList, pixelList);
-		output = "Number of token: " + stat.countToken() + "\n";
+
+		Statistic stat = new Statistic();
+		stat.setPixelList(pixelList);
+		output = "Number of pixel: " + stat.countPixel() + "\n";
 		textField.setText(output);
 		
-		output = "Number of unique token: " + stat.countUniqToken() + "\n";
+		output = "Number of unique pixel: " + stat.countUniqPixel() + "\n";
 		textField.setText(output);
 		
 		return textField;
