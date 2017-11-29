@@ -19,7 +19,7 @@ import javafx.stage.FileChooser.ExtensionFilter;
 import parser.Input;
 
 /**
- * @author crimsonfig
+ * @author Triston Scallan, Irfan Syed
  *
  */
 public class ControllerFileHandlers {
