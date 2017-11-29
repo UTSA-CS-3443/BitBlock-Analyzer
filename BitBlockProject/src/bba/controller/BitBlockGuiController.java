@@ -278,12 +278,12 @@ public class BitBlockGuiController {
 		} 
 		
 		// Stat
-		DisplayStatOnClick stat = new DisplayStatOnClick();
-		statTextArea = stat.DisplayStatOnClick(statTextArea, bb.getPixelList());
+		//DisplayStatOnClick stat = new DisplayStatOnClick();
+		//statTextArea = stat.DisplayStatOnClick(statTextArea, bb.getPixelList());
 		
-		// NOT WORKING YET
-		//DrawPixels pixels = new DrawPixels();
-		//canvas = pixels.drawPixels(canvas, bb.getPixelList());
+		
+		DrawPixels pixels = new DrawPixels();
+		canvas = pixels.drawPixels(canvas, bb.getPixelList());
 		
 		//update the buttons abled to be clicked
 		start.setDisable(true);
