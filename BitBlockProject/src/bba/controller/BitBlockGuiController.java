@@ -3,9 +3,10 @@ package bba.controller;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.canvas.*;
+import javafx.scene.paint.Color;
 import bba.model.*;
 import parser.Input;
-//import parser.Statistic;
+import parser.Statistic;
 import parser.TokenizedPixel;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -183,10 +184,26 @@ public class BitBlockGuiController {
 		//statTextArea.setText(stat.toString());
 		//DisplayStatOnClick stat = new DisplayStatOnClick();
 		//statTextArea = stat.DisplayStatOnClick(statTextArea, bb.getPixelList());
+
+		TokenizedPixel one = new TokenizedPixel("int", Color.AQUA);
+		TokenizedPixel two = new TokenizedPixel("double", Color.BLACK);
+		TokenizedPixel three = new TokenizedPixel("char", Color.BLUE);
+		TokenizedPixel four = new TokenizedPixel("float", Color.RED);
+		TokenizedPixel five = new TokenizedPixel("for", Color.YELLOW);
+		TokenizedPixel six = new TokenizedPixel("if", Color.ORANGE);
+
+		List<TokenizedPixel> tTokenList = new ArrayList<TokenizedPixel>();
+
+		tTokenList.add(one);
+		tTokenList.add(two);
+		tTokenList.add(three);
+		tTokenList.add(four);
+		tTokenList.add(five);
+		tTokenList.add(six);
 		
-		
-		//DrawPixels pixels = new DrawPixels();
-		//canvas = pixels.drawPixels(canvas, bb.getPixelList());
+		DrawPixels pixels = new DrawPixels();
+		pixels.drawPixels(canvas, tTokenList);
+	//	canvas = pixels.drawPixels(canvas, bb.getPixelList());
 		
 		//update the buttons able to be clicked
 		start.setDisable(true);

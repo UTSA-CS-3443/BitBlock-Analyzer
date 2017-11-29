@@ -2,11 +2,11 @@ package bba.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.image.WritableImage;
-import parser.ColorPalette;
+import javafx.scene.canvas.GraphicsContext;
 import parser.TokenizedPixel;
-import javafx.scene.image.PixelWriter;
 import javafx.scene.paint.Color;
 
 
@@ -32,11 +32,12 @@ public class DrawPixels {
 	{
 		int iWidth = (int) canvas.getWidth();
 		int iHeight = (int) canvas.getHeight();
+		int iStart = 50;
+		int iFinish = 50;
+		double dStart = 1;
 		WritableImage bitBlock = new WritableImage(iWidth, iHeight);
-		PixelWriter pixelWriter = bitBlock.getPixelWriter();
+		GraphicsContext gc = canvas.getGraphicsContext2D();
 
-		
-		
 		/*
 		 * Add bit block tokens to the arrayList used to populate the Canvas
 		 */
@@ -45,22 +46,22 @@ public class DrawPixels {
 			tColorList.add(pixelList.get(i).getColor());
 			tTokenList.add(pixelList.get(i).getToken());
 		}
-		
-		/*
-		 * Cycle through the ArrayList of colors and add them to the canvas
-		 */
-		for (int y = 0; y < tColorList.size(); y++)
+
+		for (int x = 0; x < tColorList.size(); x++)
 		{
-			for (int x = 1; x < iWidth; x++)
-			{
-				for (int j = 1; x < iHeight; j++)
-				{
-					cPixel = tColorList.get(y);
-					pixelWriter.setColor(x, j, cPixel);
-				}
-			}
+			System.out.println(tColorList.get(x));
+
+			Rectangle rectangle = new Rectangle(iStart,iFinish, 15, 15);
+			rectangle.setFill(tColorList.get(x));
+			iStart = iStart+16;
+			iFinish = iFinish+16;
+
+			rectangle.snapshot(null,bitBlock);
+			gc.drawImage(bitBlock,dStart,iHeight/2);
+			dStart = dStart+16;
+
 		}
-		
+
 		return canvas;
 	}	
 }
