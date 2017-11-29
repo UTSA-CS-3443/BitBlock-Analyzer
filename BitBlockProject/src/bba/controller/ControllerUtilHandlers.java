@@ -23,25 +23,22 @@ public class ControllerUtilHandlers {
 	 * @param pixelList
 	 * @return the textField to the controller
 	 */
-	TextArea DisplayStats(TextArea statTextArea, List<TokenizedPixel> pixelList)
+	static TextArea displayStats(TextArea statTextArea, List<TokenizedPixel> pixelList)
 	{
 		//this is honestly just a very fancy `toString` method.
-		Statistic stat = new Statistic();
-		stat.setPixelList(pixelList);
-		String output = "Number of unique pixel: " + stat.countUniqPixel() + "\n"
-				+ ""
-				+ ""
-				+ ""
-				+ ""
-				+ ""
+		Statistic stat = new Statistic(pixelList);
+		String output = "Number of unique pixels: " + stat.countUniqPixel() + "\n"
+				+ "Number of total pixels: " + stat.countPixel() + "\n"
+				+ "Most common pixel: " + stat.getMode() + "\n"
+				+ "Number of loops in the program: " + stat.countLoop() + "\n"
 				+ "";
 		statTextArea.setText(output);
 		
 		return statTextArea;
 	}
 
-	/**
-	 * 
+	/** 
+	 * Displays information about this application
 	 */
 	static void handleAboutClick() {
 		Alert alert = new Alert(AlertType.INFORMATION);

@@ -59,7 +59,7 @@ public class BitBlockGuiController {
 	private TextField codeField;
 	
 	@FXML
-	private TextField statTextArea;
+	private TextArea statTextArea;
 	
 	////variables for the controller class
 	private File dataFile = null;	//temporarily hold a file
@@ -178,6 +178,7 @@ public class BitBlockGuiController {
 			i++;
 		}
 		
+		statTextArea = ControllerUtilHandlers.displayStats(statTextArea, bb.getPixelList());
 		//Statistic stat = new Statistic(bb.getPixelList(), bb.getParser().getTokenList());
 		//statTextArea.setText(stat.toString());
 		//DisplayStatOnClick stat = new DisplayStatOnClick();
