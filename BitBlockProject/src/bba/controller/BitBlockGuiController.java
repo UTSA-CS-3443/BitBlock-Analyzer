@@ -187,22 +187,6 @@ public class BitBlockGuiController {
 		//DisplayStatOnClick stat = new DisplayStatOnClick();
 		//statTextArea = stat.DisplayStatOnClick(statTextArea, bb.getPixelList());
 
-		TokenizedPixel one = new TokenizedPixel("int",Color.web("0x356735"));
-		TokenizedPixel two = new TokenizedPixel("double", Color.web("0x356735"));
-		TokenizedPixel three = new TokenizedPixel("char", Color.web("0x356735"));
-		TokenizedPixel four = new TokenizedPixel("float", Color.web("0x356735"));
-		TokenizedPixel five = new TokenizedPixel("for", Color.web("0x356735"));
-		TokenizedPixel six = new TokenizedPixel("if", Color.web("0x356735"));
-
-		List<TokenizedPixel> tTokenList = new ArrayList<TokenizedPixel>();
-
-		tTokenList.add(one);
-		tTokenList.add(two);
-		tTokenList.add(three);
-		tTokenList.add(four);
-		tTokenList.add(five);
-		tTokenList.add(six);
-		
 		DrawPixels pixels = new DrawPixels();
 		pixels.drawPixels(canvas, bb);
 	//	canvas = pixels.drawPixels(canvas, bb.getPixelList());
