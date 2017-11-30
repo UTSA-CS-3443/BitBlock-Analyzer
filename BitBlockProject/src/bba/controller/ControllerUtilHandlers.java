@@ -70,4 +70,5 @@ public class ControllerUtilHandlers {
 		    		+ "\tJava Version: 1.8.0_144-b01, Oracle Corporation");
 		alert.showAndWait();
 	}
+	
 }

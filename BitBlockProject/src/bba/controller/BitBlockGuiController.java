@@ -18,6 +18,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.sun.glass.events.MouseEvent;
+
 /**
  * @author Josh Thorsson
  * @author Triston Scallan
@@ -158,10 +160,10 @@ public class BitBlockGuiController {
 		ControllerFileHandlers.handleSaveClick(docTextArea, dataFile);
 	}
 	
-	@FXML 
-	void textOnClick(ActionEvent event) {   //need to get action for displayTextonClick 
-		handleOnClick();
-	}
+	//@FXML 
+	// void textOnClick(ActionEvent event) {   //need to get action for displayTextonClick 
+		//handleOnClick();
+	//}
 	
 	private void handleStartClick() {
 		//create a BitBlock object, which takes the input and parses it into a pixelList
@@ -239,10 +241,13 @@ public class BitBlockGuiController {
 		canvas = pixels.drawPixels(canvas, bb.getPixelList());
 	}
 	
-	/*
-	 * Handler for display text on click 
-	 */
-	private void handleOnClick() {
+	/**
+	 * Added the mouse event 
+	@SuppressWarnings("restriction")
+	@FXML
+	private void handleOnClick(MouseEvent mouseEvent) {
+		codeField = DisplayTextOnClick.writeText(codeField, null, bb.getPixelList());
 		
 	}
+	**/
 }
