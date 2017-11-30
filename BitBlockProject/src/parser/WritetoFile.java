@@ -14,6 +14,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+/**
+* @author Anthony Hoang
+*/
 public class WritetoFile {
 
 	private List<String> sourceCodeLines = new ArrayList<String>();
