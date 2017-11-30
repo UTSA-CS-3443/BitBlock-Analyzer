@@ -3,6 +3,7 @@
  */
 package bba.controller;
 
+import java.util.HashSet;
 import java.util.List;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
@@ -32,6 +33,17 @@ public class ControllerUtilHandlers {
 				+ "Most common pixel: " + stat.getMode() + "\n"
 				+ "Number of loops in the program: " + stat.countLoop() + "\n"
 				+ "";
+		
+		
+		// Simple histogram
+		HashSet<String> uniqToken = stat.getUniqToken();
+		
+		for (String tmp: uniqToken)
+		{
+			String count = Integer.toString(stat.getFreq(tmp));
+			output += "Token '"+tmp+"': "+count+"\n";
+		}
+		
 		statTextArea.setText(output);
 		
 		return statTextArea;

@@ -150,5 +150,12 @@ public class Statistic {
 		return count;
 	}
 
+	/**
+	 * @return array of unique token
+	 */
+	public HashSet<String> getUniqToken()
+	{
+		return uniqToken;
+	}
 	
 }
