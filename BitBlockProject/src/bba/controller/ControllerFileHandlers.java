@@ -53,6 +53,7 @@ public class ControllerFileHandlers {
 	 * Saves the current file
 	 * @param docTextArea
 	 * @param dataFile
+	 * printstream is JavaFx function
 	 */
 	static void handleSaveClick(TextArea docTextArea, File dataFile) {
 		try (PrintStream ps = new PrintStream(dataFile)) {

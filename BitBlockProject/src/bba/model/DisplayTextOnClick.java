@@ -13,19 +13,25 @@ import parser.TokenizedPixel;
  */
 public class DisplayTextOnClick {
 	
-	private List<Color> tColorList = new ArrayList<Color>();
-	private List<String> tTokenList = new ArrayList<String>();
-	private String sToken;
+	private static List<Color> tColorList = new ArrayList<Color>();
+	private static List<String> tTokenList = new ArrayList<String>();
+	private static String sToken;
 	/*
 	 * @param textField The text field responsible for displaying token
 	 * @param color The color the user clicks on in the bitblock
 	 * @param pixelList the list of pixels obtained from SCParser.java.  Each object should contain the token and color associated with it
 	 */
-	public TextField writeText(TextField textField, Color color, List<TokenizedPixel> pixelList)
+	public static TextField writeText(TextField textField, Color color, List<TokenizedPixel> pixelList)
 	{		
 		/*
 		 * Add bit block tokens to the arrayList used to populate the text field
 		 */
+		
+		/**
+		 * @author iffi_ wanted to make an object that correspond to handler in controller  
+		  DisplayText text = new DisplayText(pixelList);
+		  *  
+		  */
 		for (int i = 0; i < pixelList.size(); i++)
 		{		
 			tColorList.add(pixelList.get(i).getColor());
@@ -42,6 +48,15 @@ public class DisplayTextOnClick {
 			{
 				sToken = tTokenList.get(i);
 				textField.setText(sToken);
+			/**
+			 * @author iffi_ added this method to print it on the text box in the middle
+			 * Not sure if this is right, but idea seems right. 
+			 
+				String out = "you picked: " + text.tColorList.get(i) + "\n" 
+						+ "The Code Line: " + text.tTokenList.get(i) + "\n";
+				textField.setText(out);
+					
+			**/
 			}
 		}
 		return textField;

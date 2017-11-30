@@ -115,7 +115,7 @@ public class Statistic {
 		for(String word: this.tokenList) {
 			System.out.println(word);
 			//test if it's an "overly common" token, like alphanumerics or delimiters
-			if (word.matches("^[\\(\\);\\.\\w]$")) {
+			if (!word.matches("^[\\(\\);\\.\\w]$")) {
 				lastToken = word;
 				continue;
 			}
@@ -150,5 +150,12 @@ public class Statistic {
 		return count;
 	}
 
+	/**
+	 * @return array of unique token
+	 */
+	public HashSet<String> getUniqToken()
+	{
+		return uniqToken;
+	}
 	
 }
