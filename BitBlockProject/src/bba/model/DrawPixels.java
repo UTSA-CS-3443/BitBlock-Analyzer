@@ -22,13 +22,14 @@ public class DrawPixels {
 	private List<Color> tColorList = new ArrayList<Color>();
 	private List<String> tTokenList = new ArrayList<String>();
 	private Color cPixel;
+
 	/*
 	 * @param canvas The canvas we will work on to draw the BitBlock
 	 * @param width The width of each pixel
 	 * @param height The height of each pixel
 	 * @param pixelList the list of pixels obtained from SCParser.java.  Each object should contain the token and color associated with it
 	 */
-	public Canvas drawPixels(Canvas canvas, List<TokenizedPixel> pixelList)
+	public Canvas drawPixels(Canvas canvas, BitBlock bitblock)
 	{
 		int iWidth = (int) canvas.getWidth();
 		int iHeight = (int) canvas.getHeight();
@@ -41,10 +42,10 @@ public class DrawPixels {
 		/*
 		 * Add bit block tokens to the arrayList used to populate the Canvas
 		 */
-		for (int i = 0; i < pixelList.size(); i++)
+		for (int i = 0; i < bitblock.getPixelList().size(); i++)
 		{		
-			tColorList.add(pixelList.get(i).getColor());
-			tTokenList.add(pixelList.get(i).getToken());
+			tColorList.add(bitblock.getPixelList().get(i).getColor());
+			tTokenList.add(bitblock.getPixelList().get(i).getToken());
 		}
 
 		for (int x = 0; x < tColorList.size(); x++)

@@ -202,7 +202,7 @@ public class BitBlockGuiController {
 		tTokenList.add(six);
 		
 		DrawPixels pixels = new DrawPixels();
-		pixels.drawPixels(canvas, tTokenList);
+		pixels.drawPixels(canvas, bb);
 	//	canvas = pixels.drawPixels(canvas, bb.getPixelList());
 		
 		//update the buttons able to be clicked
@@ -253,7 +253,7 @@ public class BitBlockGuiController {
 		//pass it to BitBlock and draw the pixels
 		bb = new BitBlock(tempInput);
 		DrawPixels pixels = new DrawPixels();
-		canvas = pixels.drawPixels(canvas, bb.getPixelList());
+		canvas = pixels.drawPixels(canvas, bb);
 	}
 	
 	/*
