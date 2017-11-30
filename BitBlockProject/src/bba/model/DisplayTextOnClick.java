@@ -49,6 +49,16 @@ public class DisplayTextOnClick {
             public void handle(MouseEvent e) { 
                 double x = e.getX();
                 double y = e.getY();
+                
+                x = (int) (x/5)+1;
+                y = (int) (y/5)+1;
+                
+                //x * y = area
+                int area = (int) (y * 10 + x);
+                String tToken = tTokenList.get(area);
+                
+                //set the field
+                textField.setText("Pixel: " + tToken);
             }
         });
 		
