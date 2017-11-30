@@ -2,14 +2,10 @@ package bba.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.image.WritableImage;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-import javafx.scene.image.PixelWriter;
 import parser.ColorPalette;
-
 
 /*
  * @author Josh Thorsson
@@ -30,14 +26,9 @@ public class DrawPixels {
 	 */
 	public Canvas drawPixels(Canvas canvas, BitBlock bitblock)
 	{
-		int iWidth = (int) canvas.getWidth();
-		int iHeight = (int) canvas.getHeight();
-		int iStart = 1;
-		int iFinish = 1;
 
-		WritableImage bitBlock = new WritableImage(iWidth, iHeight);
 		GraphicsContext gc = canvas.getGraphicsContext2D();
-		PixelWriter pixelWriter = gc.getPixelWriter();
+
 
 		/*
 		 * Add bit block tokens to the arrayList used to populate the Canvas
@@ -68,7 +59,6 @@ public class DrawPixels {
 					} else {
 						j++;
 					}
-
 				}
 			}
 		return canvas;
