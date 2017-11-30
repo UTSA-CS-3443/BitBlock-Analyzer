@@ -28,9 +28,10 @@ public class ControllerUtilHandlers {
 	{
 		//this is honestly just a very fancy `toString` method.
 		Statistic stat = new Statistic(pixelList);
+		String mode = stat.getMode();
 		String output = "Number of unique pixels: " + stat.countUniqPixel() + "\n"
 				+ "Number of total pixels: " + stat.countPixel() + "\n"
-				+ "Most common pixel: " + stat.getMode() + "\n"
+				+ "Most common token " + mode + " which appears " + stat.getFreq(mode) + " times " + "\n"
 				+ "Number of loops in the program: " + stat.countLoop() + "\n"
 				+ "";
 		

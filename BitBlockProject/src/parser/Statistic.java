@@ -1,8 +1,11 @@
 package parser;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 /**
  * 
@@ -19,6 +22,8 @@ public class Statistic {
 	private HashSet<String> uniqToken = new HashSet<String>();
 	private HashSet<TokenizedPixel> uniqPixel = new HashSet<TokenizedPixel>();
 	
+	private Map<String, Integer> mapToken = new HashMap<String, Integer>();
+
 	/**
 	 * set the token array list
 	 */
@@ -106,6 +111,34 @@ public class Statistic {
 	 * @return token of the mode of the list (i.e. most appearing token)
 	 */
 	public String getMode() { //TODO: set up the mode functions
+		
+		// put token list in HashMap in form of {token: value}
+		for (int i = 0; i < tokenList.size(); i++) {
+			if (mapToken.get(tokenList.get(i)) == null) {
+				mapToken.put(tokenList.get(i), 1);
+			} else {
+				mapToken.put(tokenList.get(i), mapToken.get(tokenList.get(i)) + 1);
+			}
+		}
+
+		int maxCount = 0;
+		String commonToken = null;
+
+		for (Entry<String, Integer> entry : mapToken.entrySet()) {
+
+			String key = entry.getKey();
+			int value = entry.getValue();
+
+			if ((value > maxCount) & (!key.matches("^[\\(\\) ;\\.\\w]$"))) {
+				maxCount = value;
+				commonToken = key;
+			}
+		}
+		System.out.println("most common token: " + commonToken);
+		return commonToken;
+		
+		
+	/*
 		String token = null;
 		String lastToken = null;
 		int max = 0;
@@ -133,6 +166,7 @@ public class Statistic {
 		}
 		
 		return token = (String) result[0];
+		*/
 	}
 	
 	/**
