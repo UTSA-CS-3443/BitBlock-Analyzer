@@ -3,10 +3,8 @@ package bba.controller;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.canvas.*;
-import javafx.scene.paint.Color;
 import bba.model.*;
 import parser.Input;
-import parser.Statistic;
 import parser.TokenizedPixel;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -18,8 +16,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.sun.glass.events.MouseEvent;
 
 /**
  * @author Josh Thorsson

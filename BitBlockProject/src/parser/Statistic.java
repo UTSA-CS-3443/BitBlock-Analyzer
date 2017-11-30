@@ -129,7 +129,7 @@ public class Statistic {
 			String key = entry.getKey();
 			int value = entry.getValue();
 
-			if ((value > maxCount) & (!key.matches("^[\\(\\) ;\\.\\w]$"))) {
+			if ((value > maxCount) & (!key.matches("^[\\(\\) \\*;\\.\\w]$"))) {
 				maxCount = value;
 				commonToken = key;
 			}
