@@ -42,7 +42,7 @@ public class ColorPalette {
 	    	aMap.put("final", Color.web("0xDD0"));
 	    	aMap.put("new", Color.web("0xDE0"));
 	    		//commonly called class-objects
-	    	aMap.put("Main", Color.web("0xAOC"));
+	    	aMap.put("Main", Color.web("0xA0C"));
 	    	aMap.put("List", Color.web("0xB0F"));
 	    	aMap.put("Collections", Color.web("0xC0F"));
 	    	aMap.put("Iterator", Color.web("0xF0D"));
