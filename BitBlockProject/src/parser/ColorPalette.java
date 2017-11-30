@@ -11,89 +11,86 @@ import javafx.scene.paint.Color;
  *
  */
 public class ColorPalette {
-	//TODO: create a CONSTANT variable, a hash map that sets keys (expressions and literals) to values (colors)
-	//TODO: find a list of commonly used java statements. look up generic java files and skim for top 15% used java statements.
 		/**A class constant immutable map that contains all the token-color associations*/
 	public static final Map<String, Color> PALETTE;
 
 	static {		//List of all associations
 		Map<String, Color> aMap = new HashMap<String, Color>();
 	    //Built in statements
-			//types TODO: build logic to recognize casting a type vs declaring a type
-	    	aMap.put("int", Color.web("0x000000"));
-	    	aMap.put("Integer", Color.web("0x000000"));
-	    	aMap.put("double", Color.web("0x000000"));
-	    	aMap.put("Double", Color.web("0x000000"));
-	    	aMap.put("boolean", Color.web("0x000000"));
-	    	aMap.put("char", Color.web("0x000000"));
-	    	aMap.put("String", Color.web("0x000000"));
-	    	aMap.put("long", Color.web("0x000000"));
-	    	aMap.put("Long", Color.web("0x000000"));
-	    	aMap.put("void", Color.web("0x000000"));
-	    	aMap.put("Void", Color.web("0x000000"));
+			//types ((mind casting versus declaring))
+	    	aMap.put("int", Color.web("0x008"));
+	    	aMap.put("Integer", Color.web("0x009"));
+	    	aMap.put("double", Color.web("0x00A"));
+	    	aMap.put("Double", Color.web("0x00B"));
+	    	aMap.put("boolean", Color.web("0x00C"));
+	    	aMap.put("char", Color.web("0x028"));
+	    	aMap.put("String", Color.web("0x029"));
+	    	aMap.put("long", Color.web("0x02A"));
+	    	aMap.put("Long", Color.web("0x02B"));
+	    	aMap.put("void", Color.web("0x02C"));
+	    	aMap.put("Void", Color.web("0x02D"));
 	    		//declarations
-	    	aMap.put("private", Color.web("0x000000"));
-	    	aMap.put("public", Color.web("0x000000"));
-	    	aMap.put("protected", Color.web("0x000000"));
-	    	aMap.put("import", Color.web("0x000000"));
-	    	aMap.put("package", Color.web("0x000000"));
-	    	aMap.put("class", Color.web("0x000000"));
-	    	aMap.put("extends", Color.web("0x000000"));
-	    	aMap.put("implements", Color.web("0x000000"));
-	    	aMap.put("static", Color.web("0x000000"));
-	    	aMap.put("final", Color.web("0x000000"));
-	    	aMap.put("new", Color.web("0x000000"));
+	    	aMap.put("private", Color.web("0xEE0"));
+	    	aMap.put("public", Color.web("0xCF0"));
+	    	aMap.put("protected", Color.web("0xFE0"));
+	    	aMap.put("import", Color.web("0xCB0"));
+	    	aMap.put("package", Color.web("0xED0"));
+	    	aMap.put("class", Color.web("0xEF0"));
+	    	aMap.put("extends", Color.web("0xCC0"));
+	    	aMap.put("implements", Color.web("0xCD0"));
+	    	aMap.put("static", Color.web("0xDC0"));
+	    	aMap.put("final", Color.web("0xDD0"));
+	    	aMap.put("new", Color.web("0xDE0"));
 	    		//commonly called class-objects
-	    	aMap.put("Main", Color.web("0x000000"));
-	    	aMap.put("List", Color.web("0x000000"));
-	    	aMap.put("Collections", Color.web("0x000000"));
-	    	aMap.put("Iterator", Color.web("0x000000"));
-	    	aMap.put("Map", Color.web("0x000000"));
-	    	aMap.put("ArrayList", Color.web("0x000000"));
-	    	aMap.put("Array", Color.web("0x000000"));
-	    	aMap.put("args", Color.web("0x000000"));
+	    	aMap.put("Main", Color.web("0xAOC"));
+	    	aMap.put("List", Color.web("0xB0F"));
+	    	aMap.put("Collections", Color.web("0xC0F"));
+	    	aMap.put("Iterator", Color.web("0xF0D"));
+	    	aMap.put("Map", Color.web("0xD0F"));
+	    	aMap.put("ArrayList", Color.web("0xB0D"));
+	    	aMap.put("Array", Color.web("0xB0A"));
+	    	aMap.put("args", Color.web("0xC0A"));
 	    		//commonly used statements
-	    	aMap.put("System", Color.web("0x000000"));
-	    	aMap.put("out", Color.web("0x000000"));
-	    	aMap.put("print", Color.web("0x000000"));
-	    	aMap.put("println", Color.web("0x000000"));
-	    	aMap.put("printf", Color.web("0x000000"));
-	    		//flow control TODO: flow control could use a bit of deterministic logic
-	    	aMap.put("if", Color.web("0x000000"));
-	    	aMap.put("else", Color.web("0x000000"));
-	    	aMap.put("while", Color.web("0x000000"));
-	    	aMap.put("do", Color.web("0x000000"));
-	    	aMap.put("for", Color.web("0x000000"));
-	    	aMap.put("break", Color.web("0x000000"));
-	    	aMap.put("next", Color.web("0x000000"));
-	    	aMap.put("continue", Color.web("0x000000"));
-	    	aMap.put("cancel", Color.web("0x000000"));
-	    	aMap.put("switch", Color.web("0x000000"));
-	    	aMap.put("case", Color.web("0x000000"));
-	    	aMap.put("return", Color.web("0x000000"));
-	    	aMap.put("try", Color.web("0x000000"));
-	    	aMap.put("catch", Color.web("0x000000"));
-	    	aMap.put("finally", Color.web("0x000000"));
+	    	aMap.put("System", Color.web("0xD0E"));
+	    	aMap.put("out", Color.web("0C0C"));
+	    	aMap.put("print", Color.web("0xF0C"));
+	    	aMap.put("println", Color.web("0xB0B"));
+	    	aMap.put("printf", Color.web("0xC0E"));
+	    		//flow control 
+	    	aMap.put("if", Color.web("0xCC00EE"));
+	    	aMap.put("else", Color.web("0xBB00EE"));
+	    	aMap.put("while", Color.web("0xAA00EE"));
+	    	aMap.put("do", Color.web("0x9900EE"));
+	    	aMap.put("for", Color.web("0x8800EE"));
+	    	aMap.put("break", Color.web("0x7700EE"));
+	    	aMap.put("next", Color.web("0xCC22FF"));
+	    	aMap.put("continue", Color.web("0xBB22FF"));
+	    	aMap.put("cancel", Color.web("0xAA22FF"));
+	    	aMap.put("switch", Color.web("0x9922FF"));
+	    	aMap.put("case", Color.web("0x8822FF"));
+	    	aMap.put("return", Color.web("0xFF00FF"));
+	    	aMap.put("try", Color.web("0xAA11AA"));
+	    	aMap.put("catch", Color.web("0x9911AA"));
+	    	aMap.put("finally", Color.web("0x8811AA"));
 	    		//logic
-	    	aMap.put("true", Color.web("0x000000"));
-	    	aMap.put("false", Color.web("0x000000"));
-	    	aMap.put("null", Color.web("0x000000"));
-	    	aMap.put("==", Color.web("0x000000"));
-	    	aMap.put("!=", Color.web("0x000000"));
-	    	aMap.put("<", Color.web("0x000000"));
-	    	aMap.put(">", Color.web("0x000000"));
-	    	aMap.put("<=", Color.web("0x000000"));
-	    	aMap.put(">=", Color.web("0x000000"));
-	    	aMap.put("&&", Color.web("0x000000"));
-	    	aMap.put("||", Color.web("0x000000"));
+	    	aMap.put("true", Color.web("0x04F"));
+	    	aMap.put("false", Color.web("0x14D"));
+	    	aMap.put("null", Color.web("0x056"));
+	    	aMap.put("==", Color.web("0x057"));
+	    	aMap.put("!=", Color.web("0x058"));
+	    	aMap.put("<", Color.web("0x059"));
+	    	aMap.put(">", Color.web("0x156"));
+	    	aMap.put("<=", Color.web("0x157"));
+	    	aMap.put(">=", Color.web("0x158"));
+	    	aMap.put("&&", Color.web("0x256"));
+	    	aMap.put("||", Color.web("0x257"));
 	    		//comments and javadoc: all tokens after and before comments should be ignored
-	    	aMap.put("//", Color.web("0x000000"));
-	    	aMap.put("/*", Color.web("0x000000"));
-	    	aMap.put("/**", Color.web("0x000000"));
-	    	//aMap.put("*", Color.web("0x000000"));
-	    	aMap.put("*/", Color.web("0x000000"));
-	    	aMap.put("@{word}", Color.web("0x000000")); //TODO: write logic to ignore tokens of @{words}
-	    	aMap.put(">", Color.web("0x000000"));
+	    	aMap.put("//", Color.web("0x170"));
+	    	aMap.put("/*", Color.web("0x272"));
+	    	aMap.put("/**", Color.web("0x474"));
+	    	//aMap.put("*", Color.web("0x000"));
+	    	aMap.put("*/", Color.web("0x575"));
+	    	//aMap.put("@{word}", Color.web("0x675")); 
 
 	    //List of literals. they are contained in shades _ and _
 	    		//alphabet
@@ -163,7 +160,7 @@ public class ColorPalette {
 	    		//symbols
 	    	aMap.put("-", Color.web("0xAF4400"));
 	    	aMap.put("_", Color.web("0xA94400"));
-	    	aMap.put("=", Color.web("0xDD22FF"));	//equal is kinda special as assignment, TODO: brainstorm more about logic of = in tokens
+	    	aMap.put("=", Color.web("0xDD22FF"));	//equal is kinda special as assignment
 	    	aMap.put("+", Color.web("0xFF6644"));
 	    	aMap.put("\\", Color.web("0xF96644"));
 	    	aMap.put("|", Color.web("0xEF6644"));
@@ -197,7 +194,7 @@ public class ColorPalette {
 	    	aMap.put("\n", Color.web("0xCF8800")); 	//newline!
 	    		//to define the end of a string of literals
 	    	aMap.put("EOS", Color.web("0xFFFFFF"));	//EOS is End Of String. WHITE.
-			aMap.put(null, Color.web("0x000000"))	//any null should be seen as black.
+			aMap.put(null, Color.web("0x000"));	//any null should be seen as black.
 	    	PALETTE = Collections.unmodifiableMap(aMap);
 	}
 
