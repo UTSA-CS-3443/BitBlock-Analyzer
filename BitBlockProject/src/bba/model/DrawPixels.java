@@ -46,9 +46,9 @@ public class DrawPixels {
 			int j = 0;
 			cPixel = tColorList.get(j);
 
-			for (int y = 0; y <= iSquareSize;y++)
+			for (int y = 1; y <= iSquareSize;y++)
 			{
-				for (int x = 0; x <= iSquareSize;x++)
+				for (int x = 1; x <= iSquareSize;x++)
 				{
 					if (j < tColorList.size())
 					{

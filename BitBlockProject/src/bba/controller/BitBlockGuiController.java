@@ -2,6 +2,7 @@ package bba.controller;
 
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.paint.Color;
 import javafx.scene.canvas.*;
 import bba.model.*;
 import parser.Input;
@@ -135,6 +136,10 @@ public class BitBlockGuiController {
 			start.setDisable(false);
 			save.setDisable(false);
 			saveAs.setDisable(false);
+			//Setup or reset the canvas
+			GraphicsContext gc = canvas.getGraphicsContext2D();
+		    gc.setFill(Color.WHITE);
+		    gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
 		}
 	}
 	
@@ -178,14 +183,10 @@ public class BitBlockGuiController {
 		}
 		
 		statTextArea = ControllerUtilHandlers.displayStats(statTextArea, bb.getPixelList());
-		//Statistic stat = new Statistic(bb.getPixelList(), bb.getParser().getTokenList());
-		//statTextArea.setText(stat.toString());
-		//DisplayStatOnClick stat = new DisplayStatOnClick();
-		//statTextArea = stat.DisplayStatOnClick(statTextArea, bb.getPixelList());
 
 		DrawPixels pixels = new DrawPixels();
 		pixels.drawPixels(canvas, bb);
-	//	canvas = pixels.drawPixels(canvas, bb.getPixelList());
+		DisplayTextOnClick.writeText(codeField, canvas, bb.getPixelList());
 		
 		//update the buttons able to be clicked
 		start.setDisable(true);
@@ -231,6 +232,11 @@ public class BitBlockGuiController {
 		    alert.showAndWait();		
 			return;				//stop the function early
 		} 
+		
+		//reset the canvas
+		GraphicsContext gc = canvas.getGraphicsContext2D();
+	    gc.setFill(Color.WHITE);
+	    gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
 		
 		//pass it to BitBlock and draw the pixels
 		bb = new BitBlock(tempInput);
