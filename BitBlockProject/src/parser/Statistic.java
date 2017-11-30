@@ -23,13 +23,17 @@ public class Statistic {
 	 * set the token array list
 	 */
 	
-	public Statistic(List<String> tokenList, List<TokenizedPixel> pixelList)
+	public Statistic(List<TokenizedPixel> pixelList)
 	{
-		this.tokenList = tokenList;
-		uniqToken.addAll(tokenList);
-		
-		this.pixelList = pixelList;
-		uniqPixel.addAll(pixelList);
+		//set pixelList
+		setPixelList(pixelList);
+		//extract tokens from pixelList and set tokenList
+		List<String> tokenList = new ArrayList<String>();
+		for(TokenizedPixel pixel : pixelList) {
+			String token = pixel.getToken();
+			tokenList.add(token);
+		}
+		setTokenList(tokenList);
 	}
 	
 	 
@@ -49,7 +53,7 @@ public class Statistic {
 		this.pixelList = pixelList;
 		uniqPixel.addAll(pixelList);
 	}
-	
+
 	/**
 	 * @return count all token
 	 */
@@ -96,6 +100,39 @@ public class Statistic {
 				count ++;
 		
 		return count;
+	}
+	
+	/**
+	 * @return token of the mode of the list (i.e. most appearing token)
+	 */
+	public String getMode() { //TODO: set up the mode functions
+		String token = null;
+		String lastToken = null;
+		int max = 0;
+		int count = 0;
+		tokenList.sort((String r1, String r2) -> r1.compareTo(r2));
+		Object[] result = new Object[] {"null", max};
+		for(String word: this.tokenList) {
+			System.out.println(word);
+			//test if it's an "overly common" token, like alphanumerics or delimiters
+			if (word.matches("^[\\(\\);\\.\\w]$")) {
+				lastToken = word;
+				continue;
+			}
+			//mode counting tests
+			if (word.equals(lastToken)) { //if this token is the same as the last one
+				count++;
+			} else {
+				if (max < count) {
+					max = count;
+					count = 0;
+					result = new Object[] {token, max};;
+				}
+			}
+			lastToken = word;
+		}
+		
+		return token = (String) result[0];
 	}
 	
 	/**

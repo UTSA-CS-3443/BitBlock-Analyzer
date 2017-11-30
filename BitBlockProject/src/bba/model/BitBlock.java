@@ -1,6 +1,10 @@
-package parser;
+package bba.model;
 
 import java.util.*;
+
+import parser.Input;
+import parser.SCParser;
+import parser.TokenizedPixel;
 
 /**
  * BitBlock type, a visual representation of SourceCode. 
@@ -13,14 +17,22 @@ public class BitBlock {
 	
 	/** the arrayList of TokenizedPixel type to construct a BitBlock */
 	private List<TokenizedPixel> pixelList = new ArrayList<TokenizedPixel>();
+	private SCParser parser;
 	
 	/** The constructor. <p> takes an input object and creates the associated pixelList from it */
 	public BitBlock(Input input) {
-		SCParser parser = new SCParser();
+		parser = new SCParser();
 		parser.parse(input);
 		this.pixelList = parser.getPixelList();
 	}
 	
+	/**
+	 * @return the parser
+	 */
+	public SCParser getParser() {
+		return parser;
+	}
+
 	/**
 	 * @return the pixelList
 	 */
