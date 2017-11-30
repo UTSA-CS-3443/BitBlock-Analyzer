@@ -163,7 +163,7 @@ public class ColorPalette {
 	    		//symbols
 	    	aMap.put("-", Color.web("0xAF4400"));
 	    	aMap.put("_", Color.web("0xA94400"));
-	    	aMap.put("=", Color.web("0x9F4400"));	//equal is kinda special as assignment, TODO: brainstorm more about logic of = in tokens
+	    	aMap.put("=", Color.web("0xDD22FF"));	//equal is kinda special as assignment, TODO: brainstorm more about logic of = in tokens
 	    	aMap.put("+", Color.web("0xFF6644"));
 	    	aMap.put("\\", Color.web("0xF96644"));
 	    	aMap.put("|", Color.web("0xEF6644"));
@@ -180,23 +180,24 @@ public class ColorPalette {
 	    	aMap.put("`", Color.web("0x996644"));
 	    	aMap.put("~", Color.web("0x8F6644"));
 	    		//delimiters
-	    	aMap.put(" ", Color.web("0x000000"));
-	    	aMap.put("/t", Color.web("0x000000"));
-	    	aMap.put(",", Color.web("0x000000"));
-	    	aMap.put(".", Color.web("0x000000"));
-	    	aMap.put(";", Color.web("0x000000"));
-	    	aMap.put(":", Color.web("0x000000"));
-	    	aMap.put("'", Color.web("0x000000"));
-	    	aMap.put("\"", Color.web("0x000000"));
-	    	aMap.put("(", Color.web("0x000000"));
-	    	aMap.put(")", Color.web("0x000000"));
-	    	aMap.put("{", Color.web("0x000000"));
-	    	aMap.put("}", Color.web("0x000000"));
-	    	aMap.put("[", Color.web("0x000000"));
-	    	aMap.put("]", Color.web("0x000000"));
-	    	aMap.put("\n", Color.web("0x000000")); 	//newline!
+	    	aMap.put(" ", Color.web("0xFF7700"));
+	    	aMap.put("/t", Color.web("0xF97700"));
+	    	aMap.put(",", Color.web("0xEF7700"));
+	    	aMap.put(".", Color.web("0xE97700"));
+	    	aMap.put(";", Color.web("0xDF7700"));
+	    	aMap.put(":", Color.web("0xD97700"));
+	    	aMap.put("'", Color.web("0xCF7700"));
+	    	aMap.put("\"", Color.web("0xC97700"));
+	    	aMap.put("(", Color.web("0xFF8800"));
+	    	aMap.put(")", Color.web("0xF98800"));
+	    	aMap.put("{", Color.web("0xEF8800"));
+	    	aMap.put("}", Color.web("0xE98800"));
+	    	aMap.put("[", Color.web("0xDF8800"));
+	    	aMap.put("]", Color.web("0xD98800"));
+	    	aMap.put("\n", Color.web("0xCF8800")); 	//newline!
 	    		//to define the end of a string of literals
-	    	aMap.put("EOS", Color.web("#FFF"));	//EOS is End Of String. WHITE.
+	    	aMap.put("EOS", Color.web("0xFFFFFF"));	//EOS is End Of String. WHITE.
+			aMap.put(null, Color.web("0x000000"))	//any null should be seen as black.
 	    	PALETTE = Collections.unmodifiableMap(aMap);
 	}
 
