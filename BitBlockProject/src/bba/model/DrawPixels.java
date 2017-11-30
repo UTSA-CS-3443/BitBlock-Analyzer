@@ -7,6 +7,8 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.image.WritableImage;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import javafx.scene.image.PixelWriter;
+import parser.ColorPalette;
 
 
 /*
@@ -30,13 +32,12 @@ public class DrawPixels {
 	{
 		int iWidth = (int) canvas.getWidth();
 		int iHeight = (int) canvas.getHeight();
-		int iStart = 50;
-		int iFinish = 50;
-		double dStart = 1;
-		double dFinish = 1;
+		int iStart = 1;
+		int iFinish = 1;
 
 		WritableImage bitBlock = new WritableImage(iWidth, iHeight);
 		GraphicsContext gc = canvas.getGraphicsContext2D();
+		PixelWriter pixelWriter = gc.getPixelWriter();
 
 		/*
 		 * Add bit block tokens to the arrayList used to populate the Canvas
@@ -47,24 +48,29 @@ public class DrawPixels {
 			tTokenList.add(bitblock.getPixelList().get(i).getToken());
 		}
 
+		int[] cArea = bitblock.getDimension();
+		int iSquareSize = cArea[0];
 
 
-		for (int x = 0; x < tColorList.size(); x++)
-		{
-			System.out.println(tColorList.get(x));
+			int j = 0;
+			cPixel = tColorList.get(j);
 
-			Rectangle rectangle = new Rectangle(iStart,iFinish, 4, 4);
-			rectangle.setFill(tColorList.get(x));
-			iStart = iStart+5;
-			iFinish = iFinish+5;
+			for (int y = 1; y <= iSquareSize;y++)
+			{
+				for (int x = 1; x <= iSquareSize;x++)
+				{
+					cPixel = tColorList.get(j);
+					gc.setFill(cPixel);
+					gc.fillRect(x*10, y*10, 10, 10);
+					if (!(j < tColorList.size()))
+					{
+						cPixel = ColorPalette.PALETTE.get(null);
+					} else {
+						j++;
+					}
 
-			rectangle.snapshot(null,bitBlock);
-			gc.drawImage(bitBlock,dStart,dFinish);
-			dStart = dStart+5;
-			dFinish = dFinish+5;
-
-		}
-
+				}
+			}
 		return canvas;
 	}	
 }

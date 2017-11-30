@@ -197,7 +197,7 @@ public class ColorPalette {
 	    	aMap.put("\n", Color.web("0xCF8800")); 	//newline!
 	    		//to define the end of a string of literals
 	    	aMap.put("EOS", Color.web("0xFFFFFF"));	//EOS is End Of String. WHITE.
-			aMap.put(null, Color.web("0x000000"))	//any null should be seen as black.
+			aMap.put(null, Color.web("0x000000"));	//any null should be seen as black.
 	    	PALETTE = Collections.unmodifiableMap(aMap);
 	}
 
