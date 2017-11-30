@@ -50,7 +50,11 @@ public class DrawPixels {
 			{
 				for (int x = 1; x <= iSquareSize;x++)
 				{
-					cPixel = tColorList.get(j);
+					if (j < tColorList.size())
+					{
+						cPixel = tColorList.get(j);
+					}
+
 					gc.setFill(cPixel);
 					gc.fillRect(x*10, y*10, 10, 10);
 					if (!(j < tColorList.size()))

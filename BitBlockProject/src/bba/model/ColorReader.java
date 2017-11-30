@@ -1,24 +1,44 @@
-/*package bba.model;
+package bba.model;
 
-import javafx.scene.image.PixelReader;
-import java.util.ArrayList;
-import java.util.List;
+import javafx.event.EventHandler;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
-import parser.ColorPalette;
+import javafx.scene.image.WritableImage;
+
 /**
  * @author Josh Thorsson
  *
+ */
 public class ColorReader {
 
+    private double xCoord = 0.0;
+    private double yCoord = 0.0;
     public Color readColor(Canvas canvas) {
 
+        Color cClickedColor = null;
+
+        canvas.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            public void handle(MouseEvent me) {
+           xCoord = me.getX();
+           yCoord = me.getY();
+        }
+        });
+
+        int iWidth = (int) canvas.getWidth();
+        int iHeight = (int) canvas.getHeight();
+
         GraphicsContext gc = canvas.getGraphicsContext2D();
+        WritableImage image = new WritableImage(iWidth, iHeight);
 
-        // PixelReader pColor =
+        image = canvas.snapshot(new SnapshotParameters(),null);
 
 
+        cClickedColor = image.getPixelReader().getColor((int)xCoord,(int)yCoord);
+
+
+        return cClickedColor;
     }
 }
-*/
