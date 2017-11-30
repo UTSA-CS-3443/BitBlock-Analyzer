@@ -20,7 +20,7 @@ import java.nio.file.Paths;
 public class WritetoFile {
 
 	private List<String> sourceCodeLines = new ArrayList<String>();
-	
+	private int side;
 	
 	/**
 	 * 
@@ -31,15 +31,16 @@ public class WritetoFile {
 	public WritetoFile(List<TokenizedPixel> pixelList, String outfile) throws IOException
 	{
 		
-		int width = 640;
-		int height = 320;
+		Statistic stat = new Statistic(pixelList);
 		
-		BufferedImage imgage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+		side = stat.countPixel();
+		
+		BufferedImage imgage = new BufferedImage(side, side, BufferedImage.TYPE_INT_RGB);
 		
 		File f = null;
 		
-		for (int y = 0; y < height; y++) {
-			for (int x = 0; x < width; x++) {
+		for (int y = 0; y < side; y++) {
+			for (int x = 0; x < side; x++) {
 				int red = (int) (Math.random() * 256); 
 				int green = (int) (Math.random() * 256); 
 				int blue = (int) (Math.random() * 256); 
