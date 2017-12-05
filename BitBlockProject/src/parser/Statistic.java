@@ -29,25 +29,19 @@ public class Statistic {
 	/**
 	 * set the token array list
 	 */
-	
 	public Statistic(List<TokenizedPixel> pixelList)
 	{
 		//set pixelList
 		setPixelList(pixelList);
+		
 		//extract tokens from pixelList and set tokenList
-		List<String> tokenList = new ArrayList<String>();
 		for(TokenizedPixel pixel : pixelList) {
 			String token = pixel.getToken();
 			tokenList.add(token);
 		}
 		setTokenList(tokenList);
+		uniqToken.addAll(tokenList);
 	}
-	
-	 
-	public Statistic() {
-		
-	}
-
 
 	public void setTokenList(List<String> tokenList)
 	{
@@ -82,8 +76,7 @@ public class Statistic {
 	 */
 	public int countUniqToken()
 	{
-		HashSet<String> uniqToken = new HashSet<String>();
-		uniqToken.addAll(tokenList);
+
 		return uniqToken.size();
 	}
 	
@@ -110,7 +103,8 @@ public class Statistic {
 	}
 	
 	/**
-	 * @return token of the mode of the list (i.e. most appearing token)
+	 * @return token of the mode of the list 
+	 * 		   but ignore overly commong token
 	 */
 	public String getUmode() { //TODO: set up the mode functions
 		
@@ -140,7 +134,10 @@ public class Statistic {
 		return commonToken;
 	}
 		
-	
+	/**
+	 * @return most appearing token
+	 * 	
+	 */
 	public String getCmode() { //TODO: set up the mode functions
 		
 		// put token list in HashMap in form of {token: value}
@@ -168,35 +165,7 @@ public class Statistic {
 		System.out.println("most common token: " + commonToken);
 		return commonToken;
 	}
-	/*
-		String token = null;
-		String lastToken = null;
-		int max = 0;
-		int count = 0;
-		tokenList.sort((String r1, String r2) -> r1.compareTo(r2));
-		Object[] result = new Object[] {"null", max};
-		for(String word: this.tokenList) {
-			System.out.println(word);
-			//test if it's an "overly common" token, like alphanumerics or delimiters
-			if (!word.matches("^[\\(\\);\\.\\w]$")) {
-				lastToken = word;
-				continue;
-			}
-			//mode counting tests
-			if (word.equals(lastToken)) { //if this token is the same as the last one
-				count++;
-			} else {
-				if (max < count) {
-					max = count;
-					count = 0;
-					result = new Object[] {token, max};;
-				}
-			}
-			lastToken = word;
-		}
-		
-		return token = (String) result[0];
-		*/
+	
 	
 	/**
 	 * @return  the number of loop in the source
@@ -212,39 +181,31 @@ public class Statistic {
 		
 		return count;
 	}
-
-	/**
-	 * @return array of unique token
-	 */
-	public HashSet<String> getUniqToken()
-	{
-		return uniqToken;
-	}
 	
 	/**
 	 * @return histogram
 	 */
 	public String getHist()
-	{
-		List sortedToken = new ArrayList(uniqToken);
-		Collections.sort(sortedToken);
-		
+	{		
 		
 		String histogram = "========================\n";
 		histogram += "Frequency\t Count      Token \n";
+		histogram += "========================\n";
 		
 		for (String tmp: uniqToken)
 		{
+			
 			int iCount = getFreq(tmp);
 			double iPercent = (getFreq(tmp)*100.0)/tokenList.size();
 			
 			String sCount = Integer.toString(iCount);
 			String sPercent = String.format("%.02f", iPercent);
 			
+			// pad the percentage on display
 			if (iPercent < 10)
 				sPercent = "0"+sPercent+"%";
 			
-			
+			// pad the Count on display
 			if (iCount <10)
 				sCount = "___" + sCount;
 			else if (iCount < 100)
@@ -252,15 +213,10 @@ public class Statistic {
 			else if (iCount < 1000)
 				sCount = "_" + sCount;
 			
+			// extrac padding
 			sCount = "   " + sCount;
 			
-			
-			int padLength = 20 - tmp.length();
-
-			for (int j=0; j< padLength; j++)
-				tmp += " ";
-				
-			
+			// histogram
 			histogram += "[" + sPercent + "]\t\t" + sCount + "       " + tmp + "\n";
 			
 		}

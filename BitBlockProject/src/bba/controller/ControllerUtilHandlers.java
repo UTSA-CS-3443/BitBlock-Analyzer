@@ -40,16 +40,9 @@ public class ControllerUtilHandlers {
 		
 		
 		// Simple histogram
-		HashSet<String> uniqToken = stat.getUniqToken();
-		/*
-		for (String tmp: uniqToken)
-		{
-			String count = Integer.toString(stat.getFreq(tmp));
-			output += "Token '"+tmp+"': "+count+"\n";
-		}
-		*/
 		output += stat.getHist();
 		
+		// send to text area
 		statTextArea.setText(output);
 		
 		return statTextArea;
