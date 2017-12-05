@@ -32,30 +32,24 @@ public class WritetoFile {
 			tColorList.add(bitblock.getPixelList().get(i).getColor());
 		
 		// setting up image
-		int j = 0;
+		int index = 0;
 		for (int y = 0; y < side; y++)
 		{
 			for (int x = 0; x < side; x++)
 			{
 				// get color 
-				if (j < tColorList.size())
-					cPixel = tColorList.get(j);
+				if (index < tColorList.size())
+					cPixel = tColorList.get(index);
 				else // padding
 					cPixel = ColorPalette.PALETTE.get(null);
 
-				j++;
-				
-				// convert to RGB
-				int red   = (int) (cPixel.getRed() * 256);
-				int green = (int) (cPixel.getGreen() * 256);
-				int blue  = (int) (cPixel.getBlue() * 256);
-						
-				int pixel = (red << 16) | (green << 8) | blue; 
-				
+				index++;
 				// scale each pixel
 				for (int ay = y*scale; ay < (y*scale)+scale; ay++)
 					for (int ax = x*scale; ax < (x*scale)+scale; ax++)
-							image.setRGB(ax, ay, pixel);
+							// .hashCode() produce hex: ab12ab12ff
+							// we dont need the last 8bits
+							image.setRGB(ax, ay, cPixel.hashCode() >> 8);
 				
 			}
 		}
@@ -68,5 +62,4 @@ public class WritetoFile {
 			System.out.println("Error: " + e);
 		}
 	}
-
 }
