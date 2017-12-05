@@ -28,22 +28,27 @@ public class ControllerUtilHandlers {
 	{
 		//this is honestly just a very fancy `toString` method.
 		Statistic stat = new Statistic(pixelList);
-		String mode = stat.getMode();
-		String output = "Number of unique pixels: " + stat.countUniqPixel() + "\n"
-				+ "Number of total pixels: " + stat.countPixel() + "\n"
-				+ "Most common token " + mode + " which appears " + stat.getFreq(mode) + " times " + "\n"
-				+ "Number of loops in the program: " + stat.countLoop() + "\n"
+		String uMode = stat.getUmode();
+		String cMode = stat.getCmode();
+		String output = 
+				  "Unique pixels\t\t\t: " + stat.countUniqToken() + "\n"
+				+ "Total pixels\t\t\t: " + stat.countPixel() + "\n"
+				+ "Top Uncommon token\t: " + uMode + ". Count: " + stat.getFreq(uMode) + "\n"
+				+ "Top Common token\t\t: " + cMode + ". Count: " + stat.getFreq(cMode) + "\n"
+				+ "Count loops\t\t\t: " + stat.countLoop() + "\n"
 				+ "";
 		
 		
 		// Simple histogram
 		HashSet<String> uniqToken = stat.getUniqToken();
-		
+		/*
 		for (String tmp: uniqToken)
 		{
 			String count = Integer.toString(stat.getFreq(tmp));
 			output += "Token '"+tmp+"': "+count+"\n";
 		}
+		*/
+		output += stat.getHist();
 		
 		statTextArea.setText(output);
 		

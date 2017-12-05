@@ -1,6 +1,8 @@
 package parser;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -110,7 +112,7 @@ public class Statistic {
 	/**
 	 * @return token of the mode of the list (i.e. most appearing token)
 	 */
-	public String getMode() { //TODO: set up the mode functions
+	public String getUmode() { //TODO: set up the mode functions
 		
 		// put token list in HashMap in form of {token: value}
 		for (int i = 0; i < tokenList.size(); i++) {
@@ -136,8 +138,36 @@ public class Statistic {
 		}
 		System.out.println("most common token: " + commonToken);
 		return commonToken;
+	}
 		
+	
+	public String getCmode() { //TODO: set up the mode functions
 		
+		// put token list in HashMap in form of {token: value}
+		for (int i = 0; i < tokenList.size(); i++) {
+			if (mapToken.get(tokenList.get(i)) == null) {
+				mapToken.put(tokenList.get(i), 1);
+			} else {
+				mapToken.put(tokenList.get(i), mapToken.get(tokenList.get(i)) + 1);
+			}
+		}
+
+		int maxCount = 0;
+		String commonToken = null;
+
+		for (Entry<String, Integer> entry : mapToken.entrySet()) {
+
+			String key = entry.getKey();
+			int value = entry.getValue();
+
+			if (value > maxCount) {
+				maxCount = value;
+				commonToken = key;
+			}
+		}
+		System.out.println("most common token: " + commonToken);
+		return commonToken;
+	}
 	/*
 		String token = null;
 		String lastToken = null;
@@ -167,7 +197,6 @@ public class Statistic {
 		
 		return token = (String) result[0];
 		*/
-	}
 	
 	/**
 	 * @return  the number of loop in the source
@@ -191,5 +220,53 @@ public class Statistic {
 	{
 		return uniqToken;
 	}
+	
+	/**
+	 * @return histogram
+	 */
+	public String getHist()
+	{
+		List sortedToken = new ArrayList(uniqToken);
+		Collections.sort(sortedToken);
+		
+		
+		String histogram = "========================\n";
+		histogram += "Frequency\t Count      Token \n";
+		
+		for (String tmp: uniqToken)
+		{
+			int iCount = getFreq(tmp);
+			double iPercent = (getFreq(tmp)*100.0)/tokenList.size();
+			
+			String sCount = Integer.toString(iCount);
+			String sPercent = String.format("%.02f", iPercent);
+			
+			if (iPercent < 10)
+				sPercent = "0"+sPercent+"%";
+			
+			
+			if (iCount <10)
+				sCount = "___" + sCount;
+			else if (iCount < 100)
+				sCount = "__" + sCount;
+			else if (iCount < 1000)
+				sCount = "_" + sCount;
+			
+			sCount = "   " + sCount;
+			
+			
+			int padLength = 20 - tmp.length();
+
+			for (int j=0; j< padLength; j++)
+				tmp += " ";
+				
+			
+			histogram += "[" + sPercent + "]\t\t" + sCount + "       " + tmp + "\n";
+			
+		}
+		histogram += "========================\n";
+		return histogram;
+	}
+	
 	
 }
