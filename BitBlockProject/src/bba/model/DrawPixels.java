@@ -24,7 +24,7 @@ public class DrawPixels {
 	 * @param canvas The canvas we will work on to draw the BitBlock
 	 * @param bitBlock the BitBlock containing PixelList and dimensions
 	 */
-	public Canvas drawPixels(Canvas canvas, BitBlock bitblock)
+	public Canvas drawPixels(Canvas canvas, BitBlock bitblock, int scale)
 	{
 
 		GraphicsContext gc = canvas.getGraphicsContext2D();
@@ -56,7 +56,7 @@ public class DrawPixels {
 					}
 
 					gc.setFill(cPixel);
-					gc.fillRect(x*10, y*10, 10, 10);
+					gc.fillRect(x*scale, y*scale, scale, scale);
 					if (!(j < tColorList.size()))
 					{
 						cPixel = ColorPalette.PALETTE.get(null);

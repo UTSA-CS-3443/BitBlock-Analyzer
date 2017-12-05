@@ -69,6 +69,9 @@ public class BitBlockGuiController {
 	private int idIndex = 0;			//start at 0
 	private List<Input> inputM = new ArrayList<Input>();
 	
+	//display image scaling
+	private int scale = 8;
+	
 	public BitBlockGuiController() {
 		
 	}
@@ -185,7 +188,7 @@ public class BitBlockGuiController {
 		statTextArea = ControllerUtilHandlers.displayStats(statTextArea, bb.getPixelList());
 
 		DrawPixels pixels = new DrawPixels();
-		pixels.drawPixels(canvas, bb);
+		pixels.drawPixels(canvas, bb, scale);
 		DisplayTextOnClick.writeText(codeField, canvas, bb.getPixelList());
 		
 		//update the buttons able to be clicked
@@ -241,7 +244,7 @@ public class BitBlockGuiController {
 		//pass it to BitBlock and draw the pixels
 		bb = new BitBlock(tempInput);
 		DrawPixels pixels = new DrawPixels();
-		canvas = pixels.drawPixels(canvas, bb);
+		canvas = pixels.drawPixels(canvas, bb, scale);
 	}
 	
 	/**
