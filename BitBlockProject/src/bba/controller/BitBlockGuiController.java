@@ -3,9 +3,13 @@ package bba.controller;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.paint.Color;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.scene.canvas.*;
+import bba.MainApp;
 import bba.model.*;
 import parser.TokenizedPixel;
+import parser.WritetoFile;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -40,6 +44,9 @@ public class BitBlockGuiController {
 	private MenuItem about;
 	
 	@FXML
+	private MenuItem printBB;
+	
+	@FXML
 	//////LEFT PANEL
 	private TextArea docTextArea;
 	
@@ -63,13 +70,11 @@ public class BitBlockGuiController {
 	////variables for the controller class
 	private File dataFile = null;	//temporarily hold a file
 	private BitBlock bb = null;		//holds a single bitBlock's data TODO: convert this to an arrayList
+	private int scale = 8;			//an int value that scales the bitblock pixels visually
 	
 	////variables for storing the inputs and id'ing them
 	private int idIndex = 0;			//start at 0
 	private List<Input> inputM = new ArrayList<Input>();
-	
-	//display image scaling
-	private int scale = 8;
 	
 	public BitBlockGuiController() {
 		
@@ -111,7 +116,15 @@ public class BitBlockGuiController {
 		handleRefreshClick();
 	}
 	
+	@FXML
+	void printBBAction(ActionEvent event) {
+		handlePrintClick();
+	}
 	
+	/**
+	 * Handle event for About option
+	 * @param event
+	 */
 	@FXML 
 	void aboutAction(ActionEvent event) {
 		ControllerUtilHandlers.handleAboutClick();
@@ -158,11 +171,13 @@ public class BitBlockGuiController {
 	 * Handle for Save
 	 * @param event
 	 */
-	
 	@FXML
 	void saveAction(ActionEvent event) {
 		ControllerFileHandlers.handleSaveClick(docTextArea, dataFile);
 	}
+
+	///////////////////////////////////// Event Handlers ///////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////
 	
 	/**
 	 * Event handler for the start button. sets up the stat box, the bit block, and the refresh button
@@ -192,6 +207,8 @@ public class BitBlockGuiController {
 		//update the buttons able to be clicked
 		start.setDisable(true);
 		refresh.setDisable(false);
+		printBB.setDisable(false);
+		
 	}
 	
 	/**
@@ -251,13 +268,36 @@ public class BitBlockGuiController {
 		textDisplayer.writeText(codeField, canvas, bb.getPixelList());
 	}
 	
-	/**
-	 * Added the mouse event 
-	@SuppressWarnings("restriction")
-	@FXML
-	private void handleOnClick(MouseEvent mouseEvent) {
-		codeField = DisplayTextOnClick.writeText(codeField, null, bb.getPixelList());
-		
+	private void handlePrintClick() {
+		if (bb != null) {
+			FileChooser fc = new FileChooser();
+			fc.setTitle("Print BitBlick");
+			fc.getExtensionFilters().addAll(new ExtensionFilter("PNG Files", "*.png"));
+			
+			File fileName = fc.showSaveDialog(MainApp.getStage());
+			
+			if (fileName != null) {
+				try {
+					@SuppressWarnings("unused")
+					WritetoFile wf = new WritetoFile(fileName, bb, scale);
+					
+				} catch (IOException e) {
+					e.printStackTrace();
+					Alert alert = new Alert(AlertType.ERROR);
+				        	alert.setTitle("IO error");
+				        alert.setHeaderText(null);
+				        alert.setContentText("Was unable to create png file. Try again!");
+			        alert.showAndWait();
+			        return;
+				}
+			} 
+		} else {
+			Alert alert = new Alert(AlertType.WARNING);
+		        	alert.setTitle("No BitBlock created yet");
+		        alert.setHeaderText("No BitBlock created yet");
+		        alert.setContentText("The BitBlock needs to be created before it can be printed.");
+		    alert.showAndWait();
+		    return;
+		}
 	}
-	**/
 }

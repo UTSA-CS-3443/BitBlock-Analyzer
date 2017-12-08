@@ -15,6 +15,7 @@ import java.io.IOException;
 /**
  * creates a png file based on the current bitblock
 * @author Anthony Hoang
+* @author Triston Scallan
 */
 public class WritetoFile {
 	
@@ -28,12 +29,11 @@ public class WritetoFile {
 	 * @param scale
 	 * @throws IOException
 	 */
-	public WritetoFile(String outfile, BitBlock bitblock, int scale) throws IOException
+	public WritetoFile(File f, BitBlock bitblock, int scale) throws IOException
 	{
 		
 		int side = bitblock.getDimension()[0];
 		BufferedImage image = new BufferedImage(side*scale, side*scale, BufferedImage.TYPE_INT_RGB);
-		File f = null;
 		
 		// create array of color
 		for (int i = 0; i < bitblock.getPixelList().size(); i++)
@@ -64,7 +64,6 @@ public class WritetoFile {
 		
 		// write to file
 		try {
-			f = new File(outfile + ".png");
 			ImageIO.write(image, "png", f);
 		} catch (IOException e) {
 			System.out.println("Error: " + e);

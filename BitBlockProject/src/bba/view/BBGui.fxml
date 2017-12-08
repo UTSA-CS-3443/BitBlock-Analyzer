@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="900.0" maxWidth="1000.0" minHeight="200.0" minWidth="200.0" prefHeight="900.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bba.controller.BitBlockGuiController">
+<BorderPane maxHeight="900.0" maxWidth="1000.0" minHeight="200.0" minWidth="200.0" prefHeight="900.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bba.controller.BitBlockGuiController">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -81,6 +81,11 @@
               <MenuItem fx:id="close" mnemonicParsing="false" onAction="#quitAction" text="Quit" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Print">
+              <items>
+                <MenuItem fx:id="printBB" disable="true" mnemonicParsing="false" onAction="#printBBAction" text="Print BitBlock" />
+              </items>
+            </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
               <MenuItem fx:id="about" mnemonicParsing="false" onAction="#aboutAction" text="About" />
