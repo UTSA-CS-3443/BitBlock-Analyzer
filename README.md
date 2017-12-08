@@ -1,15 +1,22 @@
 # BitBlock-Analyzer
 The BitBlock-Analyzer is an application designed to parse Java source code to produce statistics about the code and create a visual representation of the code itself in the form of colored pixels.
 
-## Barebone Functionality
-- needs to take input from source file (java file) : Completed!
+## How to Run
+Currently, the project has an up-to-date working executable jar file held in the top directory. Running this will run the code already compiled!
+
+In order to compile the source code, simply import to a Eclipse IDE with JavaFx and Java 8 support to compile and run.
+
+Included is a sample.java file meant only to be used to test the program with. Currently, almost all java files should work, but this sample is certain to work with the program.
+
+## Barebone Functionality (base)
+- needs to take input from source file (java file)
 - Parse over the source file
   - Built in statements will have predefined colors
-  - User created statements will have a color that is inherently “flagged” that will then take in a string of alphanumeric colors before having a terminating black color
+  - User created statements and non java-native keywords will be interpreted as a string of characters
 - Needs to have 1 to 1 mapping between code and bitblock
   - Needs a universal color palette 
 - Needs to produce statistics
-- Needs to produce a BitBlock : Completed!
+- Needs to produce a BitBlock
 - Display information to GUI
 - Have a menu on top
 - Needs to allow the user to edit the source file
