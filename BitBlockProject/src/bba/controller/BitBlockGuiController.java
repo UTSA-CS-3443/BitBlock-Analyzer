@@ -5,7 +5,6 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.paint.Color;
 import javafx.scene.canvas.*;
 import bba.model.*;
-import parser.Input;
 import parser.TokenizedPixel;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -165,11 +164,9 @@ public class BitBlockGuiController {
 		ControllerFileHandlers.handleSaveClick(docTextArea, dataFile);
 	}
 	
-	//@FXML 
-	// void textOnClick(ActionEvent event) {   //need to get action for displayTextonClick 
-		//handleOnClick();
-	//}
-	
+	/**
+	 * Event handler for the start button. sets up the stat box, the bit block, and the refresh button
+	 */
 	private void handleStartClick() {
 		//create a BitBlock object, which takes the input and parses it into a pixelList
 		bb = new BitBlock(inputM.get(0));
@@ -185,17 +182,21 @@ public class BitBlockGuiController {
 			i++;
 		}
 		
-		statTextArea = ControllerUtilHandlers.displayStats(statTextArea, bb.getPixelList());
-
+		ControllerUtilHandlers.displayStats(statTextArea, bb.getPixelList());
 		DrawPixels pixels = new DrawPixels();
 		pixels.drawPixels(canvas, bb, scale);
-		DisplayTextOnClick.writeText(codeField, canvas, bb.getPixelList());
+		//so that we don't have the pixel list persist between refreshes, create as object.
+		DisplayTextOnClick textDisplayer = new DisplayTextOnClick();
+		textDisplayer.writeText(codeField, canvas, bb.getPixelList());
 		
 		//update the buttons able to be clicked
 		start.setDisable(true);
 		refresh.setDisable(false);
 	}
 	
+	/**
+	 * Event handler for the refresh button. cleans up the canvas and resets the bit block and stats.
+	 */
 	private void handleRefreshClick() {
 		String content = docTextArea.getText();
 		File temp = null;
@@ -243,8 +244,11 @@ public class BitBlockGuiController {
 		
 		//pass it to BitBlock and draw the pixels
 		bb = new BitBlock(tempInput);
+		ControllerUtilHandlers.displayStats(statTextArea, bb.getPixelList());
 		DrawPixels pixels = new DrawPixels();
-		canvas = pixels.drawPixels(canvas, bb, scale);
+		pixels.drawPixels(canvas, bb, scale);
+		DisplayTextOnClick textDisplayer = new DisplayTextOnClick();
+		textDisplayer.writeText(codeField, canvas, bb.getPixelList());
 	}
 	
 	/**

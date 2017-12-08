@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
+ * creates a png file based on the current bitblock
 * @author Anthony Hoang
 */
 public class WritetoFile {
@@ -20,6 +21,13 @@ public class WritetoFile {
 	private List<Color> tColorList = new ArrayList<Color>();
 	private Color cPixel;
 	
+	/**
+	 * creates a png file based on the current bitblock
+	 * @param outfile
+	 * @param bitblock
+	 * @param scale
+	 * @throws IOException
+	 */
 	public WritetoFile(String outfile, BitBlock bitblock, int scale) throws IOException
 	{
 		

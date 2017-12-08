@@ -1,9 +1,5 @@
-/**
- * 
- */
 package bba.controller;
 
-import java.util.HashSet;
 import java.util.List;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
@@ -12,7 +8,9 @@ import parser.Statistic;
 import parser.TokenizedPixel;
 
 /**
- * @author Triston Scallan, Anthony Hoang
+ * This class is meant to contain event handles from the view dealing with user interaction
+ * @author Triston Scallan
+ * @author Anthony Hoang
  *
  */
 public class ControllerUtilHandlers {

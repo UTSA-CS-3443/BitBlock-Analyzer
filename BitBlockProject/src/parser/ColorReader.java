@@ -1,14 +1,14 @@
-package bba.model;
+package parser;
 
 import javafx.event.EventHandler;
 import javafx.scene.SnapshotParameters;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.image.WritableImage;
 
 /**
+ * CURRENTLY UNUSED
  * @author Josh Thorsson
  *
  */
@@ -30,7 +30,7 @@ public class ColorReader {
         int iWidth = (int) canvas.getWidth();
         int iHeight = (int) canvas.getHeight();
 
-        GraphicsContext gc = canvas.getGraphicsContext2D();
+        //GraphicsContext gc = canvas.getGraphicsContext2D();
         WritableImage image = new WritableImage(iWidth, iHeight);
 
         image = canvas.snapshot(new SnapshotParameters(),null);

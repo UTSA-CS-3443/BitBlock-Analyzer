@@ -13,6 +13,7 @@ import javafx.scene.paint.Color;
 public class ColorPalette {
 		/**A class constant immutable map that contains all the token-color associations*/
 	public static final Map<String, Color> PALETTE;
+	public Map<String, Color> uniquePalette = new HashMap<String, Color>();
 
 	static {		//List of all associations
 		Map<String, Color> aMap = new HashMap<String, Color>();

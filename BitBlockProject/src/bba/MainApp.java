@@ -6,8 +6,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-/*
- * @author Josh Thorsson and Triston Scallan
+/**
+ * @author Josh Thorsson
+ * @author Triston Scallan
  */
 
 public class MainApp extends Application 

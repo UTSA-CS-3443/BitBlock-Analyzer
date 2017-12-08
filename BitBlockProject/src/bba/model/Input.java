@@ -1,4 +1,4 @@
-package parser;
+package bba.model;
 
 import java.util.*;
 import java.io.*;

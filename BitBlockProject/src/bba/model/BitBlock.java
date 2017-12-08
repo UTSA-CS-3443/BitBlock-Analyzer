@@ -2,7 +2,6 @@ package bba.model;
 
 import java.util.*;
 
-import parser.Input;
 import parser.SCParser;
 import parser.TokenizedPixel;
 

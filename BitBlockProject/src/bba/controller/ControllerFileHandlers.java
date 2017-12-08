@@ -10,16 +10,18 @@ import java.util.List;
 import java.util.Scanner;
 
 import bba.MainApp;
+import bba.model.Input;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
-import parser.Input;
 
 /**
- * @author Triston Scallan, Irfan Syed
+ * This class contains even handles dealing with file IO relative to the view
+ * @author Triston Scallan
+ * @author Irfan Syed
  *
  */
 public class ControllerFileHandlers {

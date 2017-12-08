@@ -1,17 +1,17 @@
-package bba.model;
+package bba.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import bba.model.BitBlock;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import parser.ColorPalette;
 
-/*
+/**
+ * DrawPixels is used to take the list of pixels obtained from SCParser, and create an image that is drawn onto the canvas
  * @author Josh Thorsson
- * 
- * DrawPixels is used to take the list of pixels obtained from SCParser, and create and image that is drawn onto the canvas
- * 
  */
 
 public class DrawPixels {

@@ -1,11 +1,14 @@
 package parser;
 
 import java.util.*;
+
+import bba.model.Input;
 import javafx.scene.paint.Color;
 
 /**
- * Parses the Source Code. 
- * "Needs to parse over the source file"
+ * Parses the Source Code. Builds a TokenizedPixel list by taking in an input file, 
+ * scans it into lines, tokenizes it, and adds it to the list token by token.
+ * 
  * @author Triston Scallan
  *
  */
@@ -84,9 +87,9 @@ public class SCParser {
 		return this.pixelList.get(index);
 	}
 	
-	public void parse(Input input) { //DEMO VERSION
+	public void parse(Input input) { 
 		for (String line : input.getSourceCodeLines()) {
-			//check for if comment
+			//check for if comment TODO: make sure that only the words AFTER this get literalized
 			if (line.contains("//") ) { //parse line as literals
 				LiteralsToPixels(line);
 				continue;
@@ -111,7 +114,11 @@ public class SCParser {
 			ArrayList<String> emptyList = new ArrayList<String>();
 			tokenList = recursiveTokenize(tempList, emptyList, 0);
 			
-			int parseCode = 0; //1 = quote pairs.
+			//TODO: let Statistic.getMode() grab tokens from here.
+			
+			//TODO: set a flag to determine if parser should use universal tokenizer or crypto tokenizer
+			
+			int parseCode = 0; //1 = quote pairs. 
 			for (String token : tokenList) {
 				if (token.contains("\"") || parseCode == 1) { //case: quote pairs
 					LiteralsToPixels(token);
@@ -127,6 +134,13 @@ public class SCParser {
 		}
 	}
 	
+	/**
+	 * Takes in a line of strings from tempList and recursively builds a list of more concise tokens.
+	 * @param tempList the list it tokenizes from.
+	 * @param newList the list it tokenizes to.
+	 * @param done a value that tells the function when it's finished
+	 * @return an arraylist of strings, the tokenized version of tempList
+	 */
 	public ArrayList<String> recursiveTokenize(ArrayList<String> tempList, ArrayList<String> newList, int done) { //cant figure out what's wrong
 		if (done == 1) {
 			return tempList;
@@ -178,6 +192,10 @@ public class SCParser {
 		return recursiveTokenize(newList, emptyList, pass);
 	}
 	
+	/**
+	 * Takes a whole token and breaks it into a series of chars and adds it to the pixel list.
+	 * @param token a single word string representing a lingual piece of source code
+	 */
 	public void LiteralsToPixels(String token) {
 		String[] tempSplit = token.split("(?<!^)");
 		for (String temp: tempSplit) {
