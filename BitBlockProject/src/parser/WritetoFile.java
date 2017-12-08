@@ -24,9 +24,9 @@ public class WritetoFile {
 	
 	/**
 	 * creates a png file based on the current bitblock
-	 * @param outfile
-	 * @param bitblock
-	 * @param scale
+	 * @param f file to be created
+	 * @param bitblock bitblock currently in use
+	 * @param scale current pixel scaler
 	 * @throws IOException
 	 */
 	public WritetoFile(File f, BitBlock bitblock, int scale) throws IOException

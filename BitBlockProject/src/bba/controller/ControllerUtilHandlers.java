@@ -18,7 +18,7 @@ public class ControllerUtilHandlers {
 	/**
 	 * Displays statistics to the statistics text field.
 	 * The intended use is for when calls are made to the `handleStartClick()` and `handleRefreshClick()`
-	 * @param textField the FXML id for the statistics textArea
+	 * @param statTextArea the FXML id for the statistics textArea
 	 * @param pixelList
 	 * @return the textField to the controller
 	 */

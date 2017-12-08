@@ -72,7 +72,7 @@ public class ControllerFileHandlers {
 	 * @param dataFile
 	 * @param idIndex
 	 * @param inputM 
-	 * @return an object array wrapper. <p> Wrapper: Object[] {TextArea, File, List&ltInput>, Boolean}@return
+	 * @return an object array wrapper. <p> Wrapper: Object[] {TextArea, File, List&ltInput&gt, Boolean}@return
 	 */
 	static Object[] handleOpenClick(TextArea docTextArea, File dataFile, int idIndex, List<Input> inputM)  {
 		//creating JavaFX file chooser 

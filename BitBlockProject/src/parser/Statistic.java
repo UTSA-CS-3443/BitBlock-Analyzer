@@ -87,7 +87,7 @@ public class Statistic {
 	}
 	
 	/**
-	 * @param String token
+	 * @param token
 	 * @return the turn the number of times specific token appears
 	 */
 	public int getFreq(String token)

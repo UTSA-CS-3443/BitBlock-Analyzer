@@ -25,8 +25,9 @@ public class DisplayTextOnClick {
 	
 	/**
 	 * @param textField The text field responsible for displaying token
-	 * @param color The color the user clicks on in the bitblock
+	 * @param canvas canvas associated with clicks
 	 * @param pixelList the list of pixels obtained from SCParser.java.  Each object should contain the token and color associated with it
+	 * @param bb bitblock associated with text
 	 * @return the TextField to be printed out
 	 */
 	public TextField writeText(TextField textField, Canvas canvas, List<TokenizedPixel> pixelList, BitBlock bb)
