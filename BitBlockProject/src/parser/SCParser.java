@@ -88,22 +88,17 @@ public class SCParser {
 	}
 	
 	public void parse(Input input) { 
+		int isComment = 0;
 		for (String line : input.getSourceCodeLines()) {
-			//check for if comment TODO: make sure that only the words AFTER this get literalized
-			if (line.contains("//") ) { //parse line as literals
-				LiteralsToPixels(line);
-				continue;
-			} else if (line.contains("/*")) { //parse lines as literals until "*/"
-				LiteralsToPixels(line);
-				continue;
-			} else if (line.contains("* ")) { //use "^[\\s]*\\*" later
-				LiteralsToPixels(line);
-				continue;
-			} else if (line.contains("*/")) {
-				LiteralsToPixels(line);
-				continue;
-			} //not a comment then
 			
+			//check if this line is between /* and */, i.e. a comment
+			if (isComment == 1) {
+				if (!line.contains("*/")) {
+					LiteralsToPixels(line);
+					continue;
+				}
+			}
+				
 			//tokenize the line
 			ArrayList<String> tempList = new ArrayList<String>();
 			String[] splitLine = line.split(" "); //raw array of tokens
@@ -118,13 +113,26 @@ public class SCParser {
 			
 			//TODO: set a flag to determine if parser should use universal tokenizer or crypto tokenizer
 			
-			int parseCode = 0; //1 = quote pairs. 
+			int parseCode = 0; //1 = quote pairs. 2 = remainder line comment. 3 = multiline comment.
 			for (String token : tokenList) {
-				if (token.contains("\"") || parseCode == 1) { //case: quote pairs
+				
+				if (token.contains("//") || parseCode == 2) { //parse rest of line as literals
+					LiteralsToPixels(token);
+					parseCode = 2; 
+				} else if (token.contains("/*")) { //parse tokens as literals until "*/"
+					LiteralsToPixels(token);
+					parseCode = 3;
+					isComment = 1;
+				} else if (token.contains("*/")) { //parse tokens up to this point
+					LiteralsToPixels(token);
+					isComment = 0;
+					parseCode = 0;
+				} else if (token.contains("\"")) { //case: quote pairs
 					LiteralsToPixels(token);
 					parseCode = (parseCode == 0) ? 1 : 0; //toggle between 0 and 1.
-				} //TODO: later split this to JavaPALETTE and LitPALETTE so that single chars don't pass as TRUE
-				else if (ColorPalette.PALETTE.containsKey(token)) { //case: token is on the map
+				} else if ( parseCode == 1 || parseCode == 3) {
+					LiteralsToPixels(token);
+				} else if (ColorPalette.PALETTE.containsKey(token)) { //case: token is on the map
 					TokenizedPixel pixel = new TokenizedPixel(token, ColorPalette.PALETTE.get(token));
 					pixelList.add(pixel);
 				} else { //case: token isn't on the map

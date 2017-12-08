@@ -3,6 +3,7 @@ package bba.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import bba.model.BitBlock;
 import javafx.event.EventHandler;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.TextField;
@@ -28,7 +29,7 @@ public class DisplayTextOnClick {
 	 * @param pixelList the list of pixels obtained from SCParser.java.  Each object should contain the token and color associated with it
 	 * @return the TextField to be printed out
 	 */
-	public TextField writeText(TextField textField, Canvas canvas, List<TokenizedPixel> pixelList)
+	public TextField writeText(TextField textField, Canvas canvas, List<TokenizedPixel> pixelList, BitBlock bb)
 	{		
 		//Add bit block tokens to the arrayList used to populate the text field
 		for (int i = 0; i < pixelList.size(); i++)
@@ -44,11 +45,12 @@ public class DisplayTextOnClick {
                 double x = e.getX();
                 double y = e.getY();
                 
-                x = (int) (x/5)+1;
-                y = (int) (y/5)+1;
+                x = (int) (x /8);
+                y = (int) (y /8);
                 
                 //x * y = area
-                int area = (int) (y * 10 + x);
+                int side = bb.getDimension()[0];
+                int area = (int) ((y * side) - side + x);
                 String tToken = tTokenList.get(area);
                 
                 //set the field

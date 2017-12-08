@@ -202,7 +202,7 @@ public class BitBlockGuiController {
 		pixels.drawPixels(canvas, bb, scale);
 		//so that we don't have the pixel list persist between refreshes, create as object.
 		DisplayTextOnClick textDisplayer = new DisplayTextOnClick();
-		textDisplayer.writeText(codeField, canvas, bb.getPixelList());
+		textDisplayer.writeText(codeField, canvas, bb.getPixelList(), bb);
 		
 		//update the buttons able to be clicked
 		start.setDisable(true);
@@ -265,7 +265,7 @@ public class BitBlockGuiController {
 		DrawPixels pixels = new DrawPixels();
 		pixels.drawPixels(canvas, bb, scale);
 		DisplayTextOnClick textDisplayer = new DisplayTextOnClick();
-		textDisplayer.writeText(codeField, canvas, bb.getPixelList());
+		textDisplayer.writeText(codeField, canvas, bb.getPixelList(), bb);
 	}
 	
 	private void handlePrintClick() {
